@@ -1,0 +1,44 @@
+input[type="search"]{
+	width: 45px;
+	background: #ededed url('../img/search-icon.png') no-repeat 9px center;
+	padding: 9px 10px 9px 32px;
+	border-radius: 15em;
+	transition: all .5s;
+	outline: none;
+}
+input[type="search"]:focus{
+	width: 150px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #FFF;
+}
+
+#buscarBtn{
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 18px;
+	margin-top: 6px;
+}
+
+#buscar{
+	display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 50%;
+  margin: auto;
+  margin-top: 5px;
+}
+
+#tablePosicion{
+  display: flex;
+	justify-content: center;
+  width: 100%;
+	margin: auto;
+}
+
+
+@media (max-width: 800px) {
+#buscar{
+	flex-direction: column;
+	text-align: center;
+}

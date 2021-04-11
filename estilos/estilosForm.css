@@ -1,0 +1,167 @@
+body{
+    background: linear-gradient(180deg,
+       rgba(107,23,64,0.9) 30%,
+        rgba(0,102,153,0.9) 91%);
+   background-attachment: fixed;
+    background-size: 100vw 100vh;
+    font-family: 'Lato', sans-serif;
+  }
+
+  form{
+      width: 450px;
+      margin: auto;
+      background: rgba(0,0,0,0.3);
+      padding: 10px 20px;
+      box-sizing: border-box;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+  }
+
+  input{
+      width: 100%;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      padding: 7px;
+      box-sizing: border-box;
+      font-size: 16px;
+      border-radius: 2px;
+      border: none;
+      outline: none;
+      background: none;
+      border-bottom: 1px solid #e7aeca;
+      color: white;
+  }
+
+  select{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    color: white !important;
+    background-color: transparent;
+    appearance: none;
+    border-bottom: 1px solid #e7aeca;
+    color: rgb(126, 126, 126);
+  }
+
+  option{
+    border: none;
+    background-color:  rgba(107,23,64,0.9);
+    color: #fff;
+  }
+
+
+  label{
+      font-size: 22px;
+      color: whitesmoke;
+
+  }
+
+  fieldset {
+    border: none;
+    }
+
+  legend{
+    font-size: 36px;
+    color: whitesmoke;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  #genero{
+    text-align: left;
+    padding-left: 30%;
+    width: 10%;
+
+  }
+
+  #generoLabel{
+    font-size: 16px;
+  }
+
+  #enviar,#limpiar{
+    margin: auto;
+    margin-left: 25px;
+    text-decoration: none;
+    color:#fff;
+    background: #6b1740;
+    border-radius: 7px;
+    box-shadow: 0px 7px 13px 7px rgba(0,66,99,0.3);
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+     text-transform: capitalize;
+     text-align: center;
+     padding: 5px 32px;
+     border: none;
+     outline: none;
+  }
+
+  #enviar:hover,#limpiar:hover {
+    text-decoration: none;
+    color:#fff;
+    background: rgba(2, 157, 235, 0.5);
+    transition: background-color 0.5s ease-out;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  a{
+    text-decoration: none;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  #usuario{
+      width: 32px;
+      height: 32px;
+      padding-top: 10px;
+      margin-right: 10px;
+      vertical-align: middle;
+  }
+
+  #registrar{
+    background: rgba(0,102,153,0.4);
+    width: 400px;
+    height: 40px;
+    padding: 20px 20px ;
+    border-radius: 10px;
+    align-items: left;
+  }
+
+
+  #contenedor{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+  }
+
+
+
+    #botones{
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+
+    @media (min-width:720px){
+
+      form{
+          width: 60%;
+      }
+    }
+
+
+  @media (max-width:480px){
+
+    form{
+        width: 100%;
+    }
+  }
