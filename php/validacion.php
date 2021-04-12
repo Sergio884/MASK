@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <title></title>
   </head>
-  <body id="validacion">
+  <body id="login">
     <?php
     include('dbconnection.php');
     $usuario = $_POST['Usuario'];
@@ -25,9 +25,9 @@
       WHERE Usuario='$usuario'";
       $run = mysqli_query($connection,$query);
       $existe = mysqli_num_rows($run);?>
-      <section id="login">
-          <div id="contenedor-titulo-flex">
-            <div class="contenedor-titulo">
+      <section>
+          <div class="contenedor-error">
+            <div class="contenedor-login">
       <?php 
             if ($existe>0){ 
               ?>
