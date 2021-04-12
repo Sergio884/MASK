@@ -20,19 +20,27 @@
       session_start();
       $_SESSION["usuario"]=$_POST['usuario'];
       header('Location: chat.php');
-    }else {?>
-    <section id="login">
-      <div id="contenedor-titulo-flex">
-        <div class="contenedor-titulo">
-          <h1>Datos incorrectos</h1><br>
-          <form action="../html/login.html" method="post">
-            <button type="submit" name="borrar" id="btn" >Reintentar</button>
-          </form>
-        </div>
-      <div>
-    </section>
-    <?php } ?>
-
+    }else {
+      $query = "SELECT * FROM usuario
+      WHERE Usuario='$usuario'";
+      $run = mysqli_query($connection,$query);
+      $existe = mysqli_num_rows($run);?>
+      <section id="login">
+          <div id="contenedor-titulo-flex">
+            <div class="contenedor-titulo">
+      <?php 
+            if ($existe>0){ 
+              ?>
+                  <h1>La contraseña es incorrecta</h1><br>
+      <?php }else { ?>
+                  <h1>El usuario no existe</h1><br>        
+    <?php }} ?>
+                    <form action="../html/login.html" method="post">
+                    <button type="submit" name="borrar" id="btn" >Reintentar</button>
+                  </form>
+                </div>
+              <div>
+              </section>
 
 
   </body>
