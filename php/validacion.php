@@ -21,14 +21,16 @@
       $_SESSION["usuario"]=$_POST['usuario'];
       header('Location: chat.php');
     }else {?>
+    <section id="login">
       <div id="contenedor-titulo-flex">
         <div class="contenedor-titulo">
-          <h2>Datos incorrectos</h2><br>
+          <h1>Datos incorrectos</h1><br>
           <form action="../html/login.html" method="post">
             <button type="submit" name="borrar" id="btn" >Volver a intentar</button>
           </form>
         </div>
       <div>
+    </section>
     <?php } ?>
 
 
