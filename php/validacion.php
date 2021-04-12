@@ -26,7 +26,7 @@
         <div class="contenedor-titulo">
           <h1>Datos incorrectos</h1><br>
           <form action="../html/login.html" method="post">
-            <button type="submit" name="borrar" id="btn" >Volver a intentar</button>
+            <button type="submit" name="borrar" id="btn" >Reintentar</button>
           </form>
         </div>
       <div>
