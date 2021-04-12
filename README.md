@@ -7,7 +7,7 @@ Sugiero que una vez que ya clonaron el repositorio y son colaboradores cada quie
 3. git add .
 4. git commit -m "Se agrego a mi rama"
 5. git push -u origin nombreRama
-6. git pull -u origin main
+6. git pull origin main
 7. Hacer el Pull requests
 8. Se aceptará de inmediato si no corregir los conflictos
 9. git checkout main **(En este punto no verás nada de lo que hiciste en tu rama)**
