@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Estilos/estiloLogin.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    <title></title>
+    <title>Error al iniciar sesión</title>
   </head>
   <body id="login">
     <?php
