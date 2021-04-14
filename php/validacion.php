@@ -3,7 +3,7 @@
     $usuario = $_POST['Usuario'];
     $password =  $_POST['Password'];
     $query = "SELECT * FROM usuario
-    WHERE Usuario='$usuario' and Password='$password'";
+    WHERE (Usuario='$usuario' AND Password='$password') OR (Correo='$usuario' AND Password='$password')";
     $run = mysqli_query($connection,$query);
     $existe = mysqli_num_rows($run);
 
@@ -13,7 +13,7 @@
       header('Location: chat.php');
     }else {
       $query = "SELECT * FROM usuario
-      WHERE Usuario='$usuario'";
+      WHERE (Usuario='$usuario') OR (Correo='$usuario')";
       $run = mysqli_query($connection,$query);
       $existe = mysqli_num_rows($run); 
             if ($existe>0){ 
