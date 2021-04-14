@@ -89,10 +89,18 @@ h1 {
 
 .olvidar{
   position: absolute;
-  top: 68px;
+  top: 71px;
   left: 2px;
 }
 
+.clickAqui{
+  color: white;
+  text-decoration: none;
+  background-color: #017a808a;
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0px 10px;
+}
 
 #login input[type="submit"],#btn{
     transition: 0.95s;
