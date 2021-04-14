@@ -10,12 +10,12 @@
   <body id="login">
       <section>
           <div class="contenedor">
-              <h1>Inicia Sesión</h1>
+              <h1>Contraseña incorrecta</h1>
                 <div class="contenedor-login">
                   <form action="../php/validacion.php" method="post">
-                    <input type="text" name="Usuario" placeholder="&#xf007; Usuario" style="font-family:Arial, FontAwesome" required>
+                    <input type="text" name="Usuario" value="<?php echo $_GET['usuario']; ?>" placeholder="&#xf007; Usuario" style="font-family:Arial, FontAwesome" required>
                     <div class="inputPassword"><input type="password" name="Password" placeholder="&#xf084; Contraseña" style="font-family:Arial, FontAwesome"  required>
-                      <div class="olvidar">¿Olvidaste tu contraseña? <a href="#">Click Aquí</a></div>
+                      <div class="olvidar">¿Olvidaste tu contraseña? <a class="clickAqui"href="#">CLICK AQUÍ</a></div>
                     </div>
                     <input type="submit" value="Ingresar" id="btn">                
                   </form>                  
