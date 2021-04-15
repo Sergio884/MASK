@@ -22,10 +22,15 @@
     $run = mysqli_query($connection,$query);
     mysqli_close($connection);
   ?>
-    <table class="contenidoTabla" id="divu">
+    <table class="contenidoTabla" id="divu" cellspacing="0">
     <thead>
       <tr>
-        <th colspan="2"><?php echo "CHATME"; ?></th>
+        <th></th>
+        <th>-----------------</th>
+        <th>-----------------</th>
+        <th>-----------------</th>
+        <th>-----------------</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -38,22 +43,24 @@
       while($resultado = mysqli_fetch_assoc($run)){
         if($resultado['emisor']==$usuario){ ?>
           <tr>
-            <td></td>
-            <td class="miMensaje"><?php echo $resultado['mensaje']; ?></td>
+            <td colspan="3"></td>
+            <td colspan="3" class="miMensaje"><?php echo $resultado['mensaje']; ?></td>
           </tr>
           <?php
         }else{ ?>
       <tr>
-        <td class="suMensaje"><?php echo $resultado['mensaje']; ?></td>
-        <td></td>
+        <td  colspan="3" class="suMensaje"><?php echo $resultado['mensaje']; ?></td>
+        <td colspan="3"></td>
       </tr>
         <?php }
      } ?>
+    <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
+     <tr>
+      <td colspan="5" class="areaMensaje"><input type="text" name="mensaje" placeholder="Escribe un mensaje"></td>
+      <td  colspan="1" class="enviarMensaje"><input type="submit" value="Enviar"></td>
+     </tr>
     </tbody>
   </table>
-  <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
-  <input type="text" name="mensaje" placeholder="Escribe un mensaje">
-  <input type="submit" value="Enviar">
   </form>
 
 <script>

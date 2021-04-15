@@ -32,20 +32,13 @@ table.contenidoTabla tbody td {
   font-size: 13px;
 }
 
-table.contenidoTabla thead {
-  background: #6B1740;
-  background: -moz-linear-gradient(top, #905170 0%, #792e53 66%, #6B1740 100%);
-  background: -webkit-linear-gradient(top, #905170 0%, #792e53 66%, #6B1740 100%);
-  background: linear-gradient(to bottom, #905170 0%, #792e53 66%, #6B1740 100%);
-  border-bottom: 2px solid #444444;
-}
 
 table.contenidoTabla thead th {
-  font-size: 16px;
+  font-size: 0px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
-  border-left: 2px solid #D0E4F5;
+  padding:2px 15px;
 }
 table.contenidoTabla thead th:first-child {
   border-left: none;
@@ -76,5 +69,17 @@ body{
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   font-size: bold;
-  text-align: right;
+  text-align: left;
+}
+
+input[type="text"]{
+  width:128%;
+  border-radius:7px;
+
+}
+
+input[type="submit"]{
+  background-color:#8eeae2;
+  border-radius: 7px;
+  font-size:bold;
 }
