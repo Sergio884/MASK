@@ -1,0 +1,86 @@
+table{
+  display: block;
+  overflow-x: auto;
+  margin: auto;
+}
+
+#divu
+{
+    max-height: 80%;
+    width: 59%;
+    background-color: white;            
+    margin: 10px;
+    overflow-y: scroll;
+    margin: auto;
+    
+}
+
+
+table.contenidoTabla {
+  font-family: Georgia, serif;
+  border: 0px solid #000000;
+  background-color: #FFF5F6;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.contenidoTabla td, table.contenidoTabla th {
+  border: 0px solid #6B1740;
+  padding: 10px 8px;
+}
+table.contenidoTabla tbody td {
+  padding: 1% 8%;
+  font-size: 13px;
+}
+
+
+table.contenidoTabla thead th {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  padding:2px 15px;
+}
+table.contenidoTabla thead th:first-child {
+  border-left: none;
+}
+
+
+body{
+  background-size: cover;
+  height: 125vh;
+  background: rgb(80,142,172);
+  background: linear-gradient(90deg,
+     rgba(80,142,172,1) 15%,
+      rgba(112,56,84,1) 50%,
+       rgba(80,142,172,1) 85%);
+}
+
+.miMensaje{
+  background-color: #9dd0fd;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: bold;
+  text-align: right;
+}
+
+.suMensaje{
+  background-color: #8eeae2;
+  
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: bold;
+  text-align: left;
+}
+
+input[type="text"]{
+  width:128%;
+  border-radius:7px;
+
+}
+
+
+input[type="submit"]{
+  background-color:#8eeae2;
+  border-radius: 7px;
+  font-size:bold;
+}
