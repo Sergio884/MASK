@@ -11,6 +11,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <?php
+
     include('dbconnection.php');
     $usuario = $_GET['usuario'];
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -74,5 +75,24 @@
         objDiv.scrollTop = objDiv.scrollHeight;
     }
   </script>
+  <?php /*
+    $url="chat.php?usuario=".$usuario;
+    echo '<meta http-equiv=refresh content="10; '.$url.'">';
+    die; */?>
+    <script>
+     var time = new Date().getTime();
+     $(document.body).bind("mousemove keypress", function(e) {
+         time = new Date().getTime();
+     });
+
+     function refresh() {
+         if(new Date().getTime() - time >= 5000) 
+             window.location.reload(true);
+         else 
+             setTimeout(refresh, 500);
+     }
+
+     setTimeout(refresh, 500);
+</script>
   </body>
 </html>
