@@ -23,8 +23,7 @@
     <table class="contenidoTabla">
     <thead>
       <tr>
-        <th>Emisor</th>
-        <th>Mensaje</th>
+        <th colspan="2"><?php echo "CHAT"; ?></th>
       </tr>
     </thead>
     <tbody>
@@ -35,16 +34,23 @@
 
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){
-         ?>
+        if($resultado['emisor']==$usuario){ ?>
+          <tr>
+            <td></td>
+            <td><?php echo $resultado['mensaje']; ?></td>
+          </tr>
+          <?php
+        }else{ ?>
       <tr>
-        <td><?php echo $resultado['emisor'].":"; ?></td>
         <td><?php echo $resultado['mensaje']; ?></td>
+        <td></td>
       </tr>
-    <?php } ?>
+        <?php }
+     } ?>
     </tbody>
   </table>
   <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
-  <input type="text" name="mensaje" placeholder="Mensaje">
+  <input type="text" name="mensaje" placeholder="Escribe un mensaje">
   <input type="submit" value="Enviar">
   </form>
 
