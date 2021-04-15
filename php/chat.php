@@ -36,6 +36,16 @@
     </thead>
     <tbody>
       <?php
+      $remitente = "clairo";
+
+      include('dbconnection.php');
+      $query = "SELECT chat FROM chats".$usuario." WHERE usuario='$remitente'";
+      $run = mysqli_query($connection,$query);
+      $consulta = mysqli_fetch_assoc($run);
+      $chat=$consulta['chat'];
+      echo $chat;
+      mysqli_close($connection);
+
       include('dbconnection.php');
       $ordenar = "SELECT * FROM chatsergio884_clairo
                   ORDER BY idMensaje ASC";
@@ -60,9 +70,9 @@
       <td colspan="5" class="areaMensaje"><input type="text" name="mensaje" placeholder="Escribe un mensaje"></td>
       <td  colspan="1" class="enviarMensaje"><input type="submit" value="Enviar"></td>
      </tr>
+     </form>
     </tbody>
   </table>
-  </form>
 
 <script>
   scrollAbajo();
@@ -75,10 +85,6 @@
         objDiv.scrollTop = objDiv.scrollHeight;
     }
   </script>
-  <?php /*
-    $url="chat.php?usuario=".$usuario;
-    echo '<meta http-equiv=refresh content="10; '.$url.'">';
-    die; */?>
     <script>
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
@@ -86,7 +92,7 @@
      });
 
      function refresh() {
-         if(new Date().getTime() - time >= 5000) 
+         if(new Date().getTime() - time >= 50000) 
              window.location.reload(true);
          else 
              setTimeout(refresh, 500);
