@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Estilos/estiloLogin.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../estilos/tablaEstilos.css">
+    <link rel="stylesheet" href="../estilos/estiloChat.css">
     <title>Chat</title>
   </head>
   <body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <?php
     include('dbconnection.php');
     $usuario = $_GET['usuario'];
@@ -20,10 +22,10 @@
     $run = mysqli_query($connection,$query);
     mysqli_close($connection);
   ?>
-    <table class="contenidoTabla">
+    <table class="contenidoTabla" id="divu">
     <thead>
       <tr>
-        <th colspan="2"><?php echo "CHAT"; ?></th>
+        <th colspan="2"><?php echo "CHATME"; ?></th>
       </tr>
     </thead>
     <tbody>
@@ -37,12 +39,12 @@
         if($resultado['emisor']==$usuario){ ?>
           <tr>
             <td></td>
-            <td><?php echo $resultado['mensaje']; ?></td>
+            <td class="miMensaje"><?php echo $resultado['mensaje']; ?></td>
           </tr>
           <?php
         }else{ ?>
       <tr>
-        <td><?php echo $resultado['mensaje']; ?></td>
+        <td class="suMensaje"><?php echo $resultado['mensaje']; ?></td>
         <td></td>
       </tr>
         <?php }
@@ -54,5 +56,16 @@
   <input type="submit" value="Enviar">
   </form>
 
+<script>
+  scrollAbajo();
+    function scrollAbajo()
+      {
+        //Obtengo el div
+        var e = document.getElementById('divu');
+        //Llevo el scroll al fondo
+        var objDiv = document.getElementById("divu");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
+  </script>
   </body>
 </html>

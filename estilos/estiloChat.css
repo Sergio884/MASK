@@ -1,26 +1,37 @@
 table{
   display: block;
   overflow-x: auto;
-  height: 450px;
+  margin: auto;
 }
+
+#divu
+{
+    max-height: 80%;
+    width: 50%;
+    background-color: white;            
+    margin: 10px;
+    overflow-y: scroll;
+    margin: auto;
+    
+}
+
 
 table.contenidoTabla {
   font-family: Georgia, serif;
-  border: 2px solid #000000;
+  border: 0px solid #000000;
   background-color: #FFF5F6;
   text-align: center;
   border-collapse: collapse;
 }
 table.contenidoTabla td, table.contenidoTabla th {
-  border: 2px solid #6B1740;
+  border: 0px solid #6B1740;
   padding: 10px 8px;
 }
 table.contenidoTabla tbody td {
+  padding: 1% 8%;
   font-size: 13px;
 }
-table.contenidoTabla tr:nth-child(even) {
-  background: #D0E4F5;
-}
+
 table.contenidoTabla thead {
   background: #6B1740;
   background: -moz-linear-gradient(top, #905170 0%, #792e53 66%, #6B1740 100%);
@@ -40,33 +51,6 @@ table.contenidoTabla thead th:first-child {
   border-left: none;
 }
 
-a{
-  text-decoration: none;
-  color: #fff;
-}
-
-#cerrar a{
-  font-size: 22px;
-  padding: 0px 20px;
-  border-radius: 25px;
-  background: #6B1740;
-  background: -moz-linear-gradient(top, #905170 0%, #792e53 66%, #6B1740 100%);
-  background: -webkit-linear-gradient(top, #905170 0%, #792e53 66%, #6B1740 100%);
-  background: linear-gradient(to bottom, #905170 0%, #792e53 66%, #6B1740 100%);
-  border-bottom: 2px solid #444444;
-}
-
-#agregar a{
-  font-size: 24px;
-  margin-top: 20px;
-  padding: 6px 20px;
-  border-radius: 5px;
-  background: rgb(107,23,64);
-  background: linear-gradient(0deg,
-  rgba(107,23,64,1) 15%,
-  rgba(0,102,153,1) 93%);
-}
-
 
 body{
   background-size: cover;
@@ -78,8 +62,19 @@ body{
        rgba(80,142,172,1) 85%);
 }
 
-#agregar{
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.miMensaje{
+  background-color: #9dd0fd;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: bold;
+  text-align: right;
+}
+
+.suMensaje{
+  background-color: #8eeae2;
+  
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: bold;
+  text-align: right;
 }
