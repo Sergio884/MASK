@@ -31,7 +31,7 @@
       <?php
       include('dbconnection.php');
       $ordenar = "SELECT * FROM chatsergio884_clairo
-                  ORDER BY idMensaje DESC";
+                  ORDER BY idMensaje ASC";
 
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){
@@ -41,9 +41,12 @@
         <td><?php echo $resultado['mensaje']; ?></td>
       </tr>
     <?php } ?>
-
     </tbody>
   </table>
+  <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
+  <input type="text" name="mensaje" placeholder="Mensaje">
+  <input type="submit" value="Enviar">
+  </form>
 
   </body>
 </html>
