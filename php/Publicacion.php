@@ -151,6 +151,8 @@
         $Moneda = $row['Moneda'];
         $Longitud = $row['Longitud'];
         $Latitud = $row['Latitud'];
+        $Visitas = $row['Visitas'];
+        $Visitas = $Visitas + 1;
         echo "<script>
                 document.getElementById(\"NumeroDormitorio\").innerHTML=\"".$NumeroDormitorio."\";
                 document.getElementById(\"NumeroBanios\").innerHTML=\"".$NumeroBanios."\";
@@ -190,6 +192,9 @@
                 document.getElementById(\"Longitud\").innerHTML=\"".$Longitud."\";
                 document.getElementById(\"Latitud\").innerHTML=\"".$Latitud."\";
               </script>";
+      }
+      $sql = "UPDATE inmueble SET Visitas = ".$Visitas." WHERE idInmueble = ".$idInmueble."";
+      if(mysqli_query($conn, $sql)){
       }
     ?>
 
