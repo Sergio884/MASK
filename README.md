@@ -13,5 +13,5 @@ Sugiero que una vez que ya clonaron el repositorio y son colaboradores cada quie
 9. git checkout main **(En este punto no verás nada de lo que hiciste en tu rama)**
 10. git pull **(Ahora si)**
 
-Se recomienda borrar el branch cuando este ya fue utilizado pero no lo veo necesario, pero para hacerlo:
+Se recomienda borrar el branch cuando este ya fue utilizado pero no lo veo necesario, pero para hacerlo::
 * git branch -D nombreRama
