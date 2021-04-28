@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-04-2021 a las 22:44:09
+-- Tiempo de generación: 28-04-2021 a las 22:48:57
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -100,7 +100,7 @@ CREATE TABLE `Usuario` (
   `Nivel` tinyint(4) DEFAULT 1,
   `Nombres` varchar(75) NOT NULL,
   `Apellidos` varchar(75) NOT NULL,
-  `Calificacion` float NOT NULL,
+  `Calificacion` float NOT NULL DEFAULT 0,
   `Edad` date NOT NULL,
   `FotoUsuario` longblob NOT NULL,
   `Telefono` varchar(20) NOT NULL,
