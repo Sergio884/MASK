@@ -39,48 +39,10 @@
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <span id="orden">
-          <!--<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>-->
           </span>
         </div>
         <div class="carousel-inner">
           <span id="imagenes">
-          <!--
-          <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-            <div class="container">
-              <div class="carousel-caption text-start">
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-            <div class="container">
-              <div class="carousel-caption">
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-            <div class="container">
-              <div class="carousel-caption text-end">
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-
-            <div class="container">
-              <div class="carousel-caption text-end">
-              </div>
-            </div>
-          </div>
-        -->
         </span>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -111,10 +73,16 @@
         </div>
         <div class="col-md-5 col-lg-4 order-md-last informacionExtra">
           <center>
-            <p><h2>Acciones</h2></p>
+            <p><span id="ImagenUsuario"></span></p>
+            <p><h2><span id="Usuario"></span></h2></p>
+            <p><h3>Calificaci&oacute;n: <span id="Calificacion"></span></h3></p>
+            <p><h4><span id="Correo"></span></h4></p>
+            <p><h4><span id="Telefono"></span></h4></p>
+            <button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button>
+            <p></p>
             <button type="button" class="w-100 btn btn-lg btn-light">Guardar a favoritos</button>
             <p></p>
-            <button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button>
+            <p></p>
           </center>
         </div>
       </div>
@@ -157,6 +125,7 @@
         $Moneda = $row['Moneda'];
         $Longitud = $row['Longitud'];
         $Latitud = $row['Latitud'];
+        $IdUsuario = $row['IdUsuario'];
         $Visitas = $row['Visitas'];
         $Visitas = $Visitas + 1;
         echo "<script>
@@ -201,6 +170,23 @@
       }
       $sql = "UPDATE inmueble SET Visitas = ".$Visitas." WHERE idInmueble = ".$idInmueble."";
       if(mysqli_query($conn, $sql)){
+      }
+      $sql = "SELECT * FROM Usuario WHERE IdUsuario = ".$IdUsuario."";
+      $result = mysqli_query($conn, $sql);
+      if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $Usuario = $row['Usuario'];
+        $Correo = $row['Correo'];
+        $Calificacion = $row['Calificacion'];
+        $Telefono = $row['Telefono'];
+        $ImagenUsuario = $row['FotoUsuario'];
+        echo "<script>
+                document.getElementById(\"ImagenUsuario\").innerHTML=\"<img width=\\\"250\\\" height=\\\"250\\\" src=\\\"data:image/jpg;base64, ".base64_encode($ImagenUsuario)."\\\">\";
+                document.getElementById(\"Usuario\").innerHTML=\"".$Usuario."\";
+                document.getElementById(\"Calificacion\").innerHTML=\"".$Calificacion."\";
+                document.getElementById(\"Correo\").innerHTML=\"".$Correo."\";
+                document.getElementById(\"Telefono\").innerHTML=\"".$Telefono."\";
+              </script>";
       }
       $sql = "SELECT * FROM InmuebleFoto WHERE IdInmueble=".$idInmueble."";
       $result = mysqli_query($conn, $sql);
