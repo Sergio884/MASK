@@ -38,12 +38,16 @@
     <header>
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <span id="orden">
+          <!--<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>-->
+          </span>
         </div>
         <div class="carousel-inner">
+          <span id="imagenes">
+          <!--
           <div class="carousel-item active">
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
 
@@ -76,6 +80,8 @@
               </div>
             </div>
           </div>
+        -->
+        </span>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -195,6 +201,30 @@
       }
       $sql = "UPDATE inmueble SET Visitas = ".$Visitas." WHERE idInmueble = ".$idInmueble."";
       if(mysqli_query($conn, $sql)){
+      }
+      $sql = "SELECT * FROM inmueblefoto WHERE idInmueble=".$idInmueble."";
+      $result = mysqli_query($conn, $sql);
+      if(mysqli_num_rows($result) > 0){
+        $Texto = "<script>
+          document.getElementById(\"orden\").innerHTML=\"<button type=\\\"button\\\" data-bs-target=\\\"#myCarousel\\\" data-bs-slide-to=\\\"0\\\" class=\\\"active\\\" aria-current=\\\"true\\\" aria-label=\\\"Slide 1\\\"></button>";
+        $Contador = 1;
+        while ($Contador < mysqli_num_rows($result)) {
+          $Texto = $Texto."<button type=\\\"button\\\" data-bs-target=\\\"#myCarousel\\\" data-bs-slide-to=\\\"".$Contador."\\\" aria-label=\\\"Slide ".($Contador+1)."\\\"></button>";
+          $Contador = $Contador + 1;
+        }
+        $Texto = $Texto."\";
+                </script>";
+        echo $Texto;
+        $Activado = "active";
+        $Texto = "<script>
+          document.getElementById(\"imagenes\").innerHTML=\"";
+        while($row = mysqli_fetch_array($result)){
+            $Texto = $Texto."<div class=\\\"carousel-item ".$Activado."\\\"><img class=\\\"d-block w-100\\\" src=\\\"data:image/jpg;base64, ".base64_encode($row['Foto'])."\\\"></div>";
+            $Activado = "";
+        }
+        $Texto = $Texto."\";
+                </script>";
+        echo $Texto;
       }
     ?>
 
