@@ -136,7 +136,7 @@
 
       mysqli_select_db($conn, "MASK");
 
-      $sql = "SELECT * FROM inmueble WHERE idInmueble=".$idInmueble."";
+      $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
 
       $result = mysqli_query($conn, $sql);
 
@@ -151,7 +151,7 @@
         $Ciudad = $row['Ciudad'];
         $Direccion = $row['Direccion'];
         $CP = $row['CP'];
-        $MetrosCuadrados = $row['MetroCuadrados'];
+        $MetrosCuadrados = $row['MetrosCuadrados'];
         $Descripcion = $row['Descripcion'];
         $Costo = $row['Costo'];
         $Moneda = $row['Moneda'];
@@ -202,7 +202,7 @@
       $sql = "UPDATE inmueble SET Visitas = ".$Visitas." WHERE idInmueble = ".$idInmueble."";
       if(mysqli_query($conn, $sql)){
       }
-      $sql = "SELECT * FROM inmueblefoto WHERE idInmueble=".$idInmueble."";
+      $sql = "SELECT * FROM InmuebleFoto WHERE IdInmueble=".$idInmueble."";
       $result = mysqli_query($conn, $sql);
       if(mysqli_num_rows($result) > 0){
         $Texto = "<script>
