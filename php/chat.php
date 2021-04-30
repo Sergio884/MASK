@@ -11,9 +11,18 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <?php
+    $usuario = $_GET['usuario'];
+
+    $remitente = "clairo";
+    include('dbconnection.php');
+    $query = "SELECT chat FROM chats".$usuario." WHERE usuario='$remitente'";
+    $run = mysqli_query($connection,$query);
+    $consulta = mysqli_fetch_assoc($run);
+    $chat=$consulta['chat'];
+   // echo $chat;
+    mysqli_close($connection);
 
     include('dbconnection.php');
-    $usuario = $_GET['usuario'];
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
     ultimoMensaje VARCHAR(999),
@@ -36,16 +45,6 @@
     </thead>
     <tbody>
       <?php
-      $remitente = "clairo";
-
-      include('dbconnection.php');
-      $query = "SELECT chat FROM chats".$usuario." WHERE usuario='$remitente'";
-      $run = mysqli_query($connection,$query);
-      $consulta = mysqli_fetch_assoc($run);
-      $chat=$consulta['chat'];
-      echo $chat;
-      mysqli_close($connection);
-
       include('dbconnection.php');
       $ordenar = "SELECT * FROM chatsergio884_clairo
                   ORDER BY idMensaje ASC";
@@ -92,7 +91,7 @@
      });
 
      function refresh() {
-         if(new Date().getTime() - time >= 50000) 
+         if(new Date().getTime() - time >= 4000) 
              window.location.reload(true);
          else 
              setTimeout(refresh, 500);
