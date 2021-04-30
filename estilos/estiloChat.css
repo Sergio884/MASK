@@ -46,6 +46,7 @@ table.contenidoTabla thead th:first-child {
 
 
 body{
+  position: relative;
   background-size: cover;
   height: 125vh;
   background: rgb(80,142,172);
@@ -83,4 +84,11 @@ input[type="submit"]{
   background-color:#8eeae2;
   border-radius: 7px;
   font-size:bold;
+}
+
+.conversaciones{
+  position: fixed;
+  top:2px;
+  left: 7px;
+  font-size: 17px;
 }

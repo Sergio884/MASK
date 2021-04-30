@@ -63,7 +63,8 @@
         <td colspan="3"></td>
       </tr>
         <?php }
-     } ?>
+     } 
+     mysqli_close($connection);?>
     <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
      <tr>
       <td colspan="5" class="areaMensaje"><input type="text" name="mensaje" placeholder="Escribe un mensaje"></td>
@@ -72,6 +73,29 @@
      </form>
     </tbody>
   </table>
+
+  <div class="conversaciones">
+  <table class="tablaConversaciones" cellspacing="0">
+    <tbody>
+      <?php
+      include('dbconnection.php');
+      $ordenar = "SELECT * FROM chatssergio884
+                  ORDER BY tiempo DESC";
+      $run = mysqli_query($connection,$ordenar);
+      while($resultado = mysqli_fetch_assoc($run)){?>
+        <tr>
+        <td class="ultimoMensaje"><?php echo $resultado['usuario']; ?></td>
+        </tr>
+        <tr>
+            <td class="ultimoMensaje"><?php echo $resultado['ultimoMensaje']; ?></td>
+        </tr>
+     <?php }
+     mysqli_close($connection);?> 
+    </tbody>
+  </table>
+  </div>
+
+
 
 <script>
   scrollAbajo();
@@ -85,6 +109,7 @@
     }
   </script>
     <script>
+    /** 
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
@@ -96,8 +121,8 @@
          else 
              setTimeout(refresh, 500);
      }
-
      setTimeout(refresh, 500);
+     */
 </script>
   </body>
 </html>

@@ -20,6 +20,14 @@ if(strlen($mensaje)>14){
     $mensaje = $mensajeAjuste;
 }
 
+if(strlen($mensaje)>23){
+    $ultimoMensaje = "";
+    for($i=0;$i<24;$i++){
+        $ultimoMensaje = $ultimoMensaje.$mensaje[$i];
+    }
+    $ultimoMensaje = $ultimoMensaje."...";
+}
+
 include('dbconnection.php');
 $query = "INSERT INTO chat".$usuario."_clairo(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
@@ -29,6 +37,12 @@ include('dbconnection.php');
 $query = "INSERT INTO chatsergio884_".$usuario."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
+
+include('dbconnection.php');
+$query = "UPDATE chats".$usuario." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='clairo'";
+$run = mysqli_query($connection,$query);
+mysqli_close($connection);
+
 
 header('Location: chat.php?usuario='.$usuario);
 
