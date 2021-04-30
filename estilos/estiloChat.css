@@ -90,5 +90,20 @@ input[type="submit"]{
   position: fixed;
   top:2px;
   left: 7px;
-  font-size: 17px;
+}
+
+.foto{
+  background-color: red;
+}
+
+h6{
+  margin: 1px 13px;
+  font-size: 8.5px;
+}
+
+.mensaje{
+  padding: 3px;
+}
+::-webkit-scrollbar {
+  overflow-x:hidden;
 }

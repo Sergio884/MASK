@@ -75,24 +75,20 @@
   </table>
 
   <div class="conversaciones">
-  <table class="tablaConversaciones" cellspacing="0">
-    <tbody>
       <?php
       include('dbconnection.php');
       $ordenar = "SELECT * FROM chatssergio884
                   ORDER BY tiempo DESC";
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){?>
-        <tr>
-        <td class="ultimoMensaje"><?php echo $resultado['usuario']; ?></td>
-        </tr>
-        <tr>
-            <td class="ultimoMensaje"><?php echo $resultado['ultimoMensaje']; ?></td>
-        </tr>
+      <div class="foto">
+      </div>
+      <div class="mensaje">
+        <h6><?php echo $resultado['usuario']; ?></h6>
+        <h6><?php echo $resultado['ultimoMensaje']; ?></h6>
+      </div>
      <?php }
      mysqli_close($connection);?> 
-    </tbody>
-  </table>
   </div>
 
 
@@ -109,7 +105,7 @@
     }
   </script>
     <script>
-    /** 
+    /** */
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
@@ -122,7 +118,6 @@
              setTimeout(refresh, 500);
      }
      setTimeout(refresh, 500);
-     */
 </script>
   </body>
 </html>
