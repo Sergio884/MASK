@@ -20,12 +20,14 @@ if(strlen($mensaje)>14){
     $mensaje = $mensajeAjuste;
 }
 
-if(strlen($mensaje)>23){
+if(strlen($mensaje)>22){
     $ultimoMensaje = "";
-    for($i=0;$i<24;$i++){
+    for($i=0;$i<23;$i++){
         $ultimoMensaje = $ultimoMensaje.$mensaje[$i];
     }
     $ultimoMensaje = $ultimoMensaje."...";
+}else{
+    $ultimoMensaje = $mensaje;
 }
 
 include('dbconnection.php');

@@ -29,7 +29,7 @@ table.contenidoTabla td, table.contenidoTabla th {
 }
 table.contenidoTabla tbody td {
   padding: 1% 8%;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 
@@ -87,23 +87,41 @@ input[type="submit"]{
 }
 
 .conversaciones{
+  width: 19.5%;
   position: fixed;
   top:2px;
-  left: 7px;
-}
-
-.foto{
-  background-color: red;
+  left: 6px;
 }
 
 h6{
   margin: 1px 13px;
-  font-size: 8.5px;
+  font-size: 13px;
 }
 
 .mensaje{
-  padding: 3px;
+  padding: 2px;
 }
 ::-webkit-scrollbar {
   overflow-x:hidden;
+}
+
+.foto{
+  background-color: red;
+  
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.imgChat{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.contenedorConversaciones{
+  display:flex;
+  margin:6px 0px;
+  background-color:rgb(23 166 173);
+  border-radius:8px;
 }

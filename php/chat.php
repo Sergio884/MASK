@@ -81,17 +81,18 @@
                   ORDER BY tiempo DESC";
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){?>
-      <div class="foto">
-      </div>
-      <div class="mensaje">
-        <h6><?php echo $resultado['usuario']; ?></h6>
-        <h6><?php echo $resultado['ultimoMensaje']; ?></h6>
+      <div class="contenedorConversaciones">
+        <div class="foto">
+          <img src="../imagenes/brain.jpg" alt="Foto" class='imgChat'>
+        </div>
+        <div class="mensaje">
+          <h6><?php echo $resultado['usuario']; ?></h6>
+          <h6><?php echo $resultado['ultimoMensaje']; ?></h6>
+        </div>
       </div>
      <?php }
      mysqli_close($connection);?> 
   </div>
-
-
 
 <script>
   scrollAbajo();
@@ -105,7 +106,7 @@
     }
   </script>
     <script>
-    /** */
+    /** 
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
@@ -117,7 +118,7 @@
          else 
              setTimeout(refresh, 500);
      }
-     setTimeout(refresh, 500);
+     setTimeout(refresh, 500); /** */ 
 </script>
   </body>
 </html>
