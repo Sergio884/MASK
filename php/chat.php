@@ -71,7 +71,7 @@
   <div class="zonaEnvio">
     <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
       <div class="contenedorZonaEnvio">    
-        <input type="text" name="mensaje" placeholder="Escribe un mensaje">
+        <input type="text" name="mensaje" placeholder="Escribe un mensaje" autocomplete="off">
         <input type="submit" value="Enviar">
       </div>
     </form>
@@ -118,7 +118,7 @@
     }
   </script>
     <script>
-    /** */
+    /** 
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
