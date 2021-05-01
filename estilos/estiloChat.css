@@ -6,7 +6,7 @@ table{
 
 #divu
 {
-    max-height: 80%;
+    max-height: 94%;
     width: 59%;
     background-color: white;            
     margin: 10px;
@@ -48,7 +48,7 @@ table.contenidoTabla thead th:first-child {
 body{
   position: relative;
   background-size: cover;
-  height: 125vh;
+  height: 100vh;
   background: rgb(80,142,172);
   background: linear-gradient(90deg,
      rgba(80,142,172,1) 15%,
@@ -110,9 +110,6 @@ h6{
 .mensaje{
   padding: 2px;
 }
-::-webkit-scrollbar {
-  overflow-x:hidden;
-}
 
 .foto{
   background-color: red;
@@ -133,4 +130,13 @@ h6{
   margin:6px 0px;
   background-color:rgb(23 166 173);
   border-radius:8px;
+}
+
+.contenedorZonaEnvio{
+  display:flex;
+  margin:6px 0px;
+  border-radius:8px;
+  width: 59%;
+  position: absolute;
+  left: 20.5%;
 }

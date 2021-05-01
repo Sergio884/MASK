@@ -65,14 +65,17 @@
         <?php }
      } 
      mysqli_close($connection);?>
-    <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
-     <tr>
-      <td colspan="5" class="areaMensaje"><input type="text" name="mensaje" placeholder="Escribe un mensaje"></td>
-      <td  colspan="1" class="enviarMensaje"><input type="submit" value="Enviar"></td>
-     </tr>
-     </form>
     </tbody>
   </table>
+
+  <div class="zonaEnvio">
+    <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
+      <div class="contenedorZonaEnvio">    
+        <input type="text" name="mensaje" placeholder="Escribe un mensaje">
+        <input type="submit" value="Enviar">
+      </div>
+    </form>
+  </div>
 
   <div class="conversaciones">
       <?php
@@ -89,7 +92,6 @@
           $buscar = mysqli_query($connection,$ordenar);
           $datoUsuario = mysqli_fetch_assoc($buscar)
         ?>
-         <!-- <img src="../imagenes/brain.jpg" alt="Foto" class='imgChat'> -->
          <?php echo '<img src="data:image;base64,'.base64_encode($datoUsuario['fotoUsuario']).'" class="imgChat">'; ?>
         </div>
         <div class="mensaje">
@@ -116,7 +118,7 @@
     }
   </script>
     <script>
-    /** 
+    /** */
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
