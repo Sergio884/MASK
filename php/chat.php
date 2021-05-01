@@ -83,16 +83,26 @@
       while($resultado = mysqli_fetch_assoc($run)){?>
       <div class="contenedorConversaciones">
         <div class="foto">
-          <img src="../imagenes/brain.jpg" alt="Foto" class='imgChat'>
+        <?php
+          $ordenar = "SELECT fotoUsuario FROM usuario
+                      WHERE usuario='".$resultado['usuario']."'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $datoUsuario = mysqli_fetch_assoc($buscar)
+        ?>
+         <!-- <img src="../imagenes/brain.jpg" alt="Foto" class='imgChat'> -->
+         <?php echo '<img src="data:image;base64,'.base64_encode($datoUsuario['fotoUsuario']).'" class="imgChat">'; ?>
         </div>
         <div class="mensaje">
-          <h6><?php echo $resultado['usuario']; ?></h6>
-          <h6><?php echo $resultado['ultimoMensaje']; ?></h6>
+          <h6 class="nombre"><?php echo $resultado['usuario']; ?></h6>
+          <h6 class="ultimoMensaje"><?php echo $resultado['ultimoMensaje']; ?></h6>
         </div>
       </div>
      <?php }
      mysqli_close($connection);?> 
   </div>
+
+
+          
 
 <script>
   scrollAbajo();

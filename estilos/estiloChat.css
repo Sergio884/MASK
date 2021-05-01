@@ -95,7 +95,16 @@ input[type="submit"]{
 
 h6{
   margin: 1px 13px;
+}
+
+.nombre{
+  font-size: 15px;
+  color: aliceblue;
+}
+
+.ultimoMensaje{
   font-size: 13px;
+  color: #000000;
 }
 
 .mensaje{
