@@ -34,12 +34,20 @@
       while($resultado = mysqli_fetch_assoc($run)){
         if($resultado['emisor']==$usuario){ ?>
           <tr>
+            <td colspan="3"><td>
+            <td colspan="3" class="miHora"><?php echo $resultado['tiempo']; ?></td>
+          </tr>
+          <tr>
             <td colspan="3"></td>
             <td colspan="3" class="miMensaje"><?php echo $resultado['mensaje']; ?></td>
           </tr>
           <?php
         }else{ ?>
       <tr>
+          <tr>
+            <td colspan="3"><?php echo $resultado['tiempo']; ?></td>
+            <td colspan="3"><td>
+          </tr>
         <td  colspan="3" class="suMensaje"><?php echo $resultado['mensaje']; ?></td>
         <td colspan="3"></td>
       </tr>
@@ -77,6 +85,7 @@
         </div>
         <div class="mensaje">
           <h6 class="nombre"><?php echo $resultado['usuario']; ?></h6>
+          <h6><?php echo $resultado['tiempo']; ?></h6>
           <h6 class="ultimoMensaje"><?php echo $resultado['ultimoMensaje']; ?></h6>
         </div>
       </div>
