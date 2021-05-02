@@ -1,5 +1,6 @@
 <?php
-$usuario = $_GET['usuario'];
+    session_start();
+$usuario = $_SESSION['usuario'];
 $mensaje = $_POST['mensaje'];
 if(strlen($mensaje)>14){
     $mensajeAjuste = $mensaje;
@@ -20,9 +21,9 @@ if(strlen($mensaje)>14){
     $mensaje = $mensajeAjuste;
 }
 
-if(strlen($mensaje)>22){
+if(strlen($mensaje)>21){
     $ultimoMensaje = "";
-    for($i=0;$i<23;$i++){
+    for($i=0;$i<22;$i++){
         $ultimoMensaje = $ultimoMensaje.$mensaje[$i];
     }
     $ultimoMensaje = $ultimoMensaje."...";
@@ -46,7 +47,7 @@ $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 
-header('Location: chat.php?usuario='.$usuario);
+header('Location: chat.php');
 
 
 ?>

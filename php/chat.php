@@ -11,17 +11,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <?php
-    $usuario = $_GET['usuario'];
-
-    $remitente = "clairo";
-    include('dbconnection.php');
-    $query = "SELECT chat FROM chats".$usuario." WHERE usuario='$remitente'";
-    $run = mysqli_query($connection,$query);
-    $consulta = mysqli_fetch_assoc($run);
-    $chat=$consulta['chat'];
-   // echo $chat;
-    mysqli_close($connection);
-
+    session_start();
+    $usuario = $_SESSION['usuario'];
     include('dbconnection.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
@@ -33,16 +24,6 @@
     mysqli_close($connection);
   ?>
     <table class="contenidoTabla" id="divu" cellspacing="0">
-    <thead>
-      <tr>
-        <th>----------------------------------</th>
-        <th>----------------------------------</th>
-        <th>----------------------------------</th>
-        <th>----------------------------------</th>
-        <th>----------------------------------</th>
-        <th>----------------------------------</th>
-      </tr>
-    </thead>
     <tbody>
       <?php
       include('dbconnection.php');
@@ -69,7 +50,7 @@
   </table>
 
   <div class="zonaEnvio">
-    <form action="enviarMensaje.php?usuario=<?php echo $_GET['usuario']; ?>" method="post">
+    <form action="enviarMensaje.php" method="post">
       <div class="contenedorZonaEnvio">    
         <input type="text" name="mensaje" placeholder="Escribe un mensaje" autocomplete="off">
         <input type="submit" value="Enviar">

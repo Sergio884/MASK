@@ -9,8 +9,8 @@
 
     if ($existe>0) {
       session_start();
-      $_SESSION["usuario"]=$_POST['usuario'];
-      header('Location: chat.php?usuario='.$usuario);
+      $_SESSION['usuario']=$_POST['Usuario'];
+      header('Location: chat.php');
     }else {
       $query = "SELECT * FROM usuario
       WHERE (Usuario='$usuario') OR (Correo='$usuario')";
