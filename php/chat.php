@@ -13,6 +13,7 @@
   <?php
     session_start();
     $usuario = $_SESSION['usuario'];
+    $receptor = $_GET['receptor'];
     include('dbconnection.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
@@ -25,9 +26,85 @@
   ?>
     <table class="contenidoTabla" id="divu" cellspacing="0">
     <tbody>
+    <?php
+      include('dbconnection.php');
+      $sql = "SELECT chat FROM chats".$usuario."
+                      WHERE usuario='".$receptor."'";
+      $buscar = mysqli_query($connection,$sql);
+      $existe = mysqli_num_rows($buscar);
+      mysqli_close($connection);
+      if ($existe>0) {
+        $chat = mysqli_fetch_assoc($buscar);
+        $chatUsuario = $chat['chat'];
+      }else {
+        $chatUsuario = "chat".$usuario."_".$receptor;
+        include('dbconnection.php');
+        $insertar = "INSERT INTO chats".$usuario."(chat,ultimoMensaje,tiempo,usuario) VALUES('$chatUsuario',' ',current_timestamp(),'$receptor')";
+        mysqli_query($connection,$insertar);
+        mysqli_close($connection); 
+        include('dbconnection.php');
+        $query = "CREATE TABLE $chatUsuario(idMensaje INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        emisor VARCHAR(50),
+        mensaje VARCHAR(999),
+        tiempo TIMESTAMP,
+        idInmueble int)";
+        mysqli_query($connection,$query);
+        mysqli_close($connection);
+        
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','POLÍTICAS DEL CHAT',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection);      
+
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Los mensajes enviados son responsabilidad de los usuarios',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection);      
+
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Los mensajes están protegidos solo para que ustedes puedan verlos',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection); 
+
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Evite dar depósitos de dinero directos',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection); 
+
+
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','No envíe sus datos bancarios',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection); 
+
+        
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Evité lenguaje en incite el odio',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection); 
+
+        
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','El respeto mutuo hacer fuerte a nuestra comunidad ',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection); 
+
+
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Hola $usuario yo soy $receptor',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection);
+
+        include('dbconnection.php');
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','¿En qué puedo ayudarte?',current_timestamp())";
+        $run = mysqli_query($connection,$query);
+        mysqli_close($connection);
+      }
+    ?>
+
       <?php
       include('dbconnection.php');
-      $ordenar = "SELECT * FROM chatsergio884_clairo
+      $ordenar = "SELECT * FROM ".$chatUsuario."
                   ORDER BY idMensaje ASC";
 
       $run = mysqli_query($connection,$ordenar);
@@ -58,7 +135,7 @@
   </table>
 
   <div class="zonaEnvio">
-    <form action="enviarMensaje.php" method="post">
+    <form action="enviarMensaje.php?receptor=<?php echo $receptor; ?>" method="post">
       <div class="contenedorZonaEnvio">    
         <input type="text" name="mensaje" placeholder="Escribe un mensaje" autocomplete="off">
         <input type="submit" value="Enviar">
@@ -69,7 +146,7 @@
   <div class="conversaciones">
       <?php
       include('dbconnection.php');
-      $ordenar = "SELECT * FROM chatssergio884
+      $ordenar = "SELECT * FROM chats".$usuario."
                   ORDER BY tiempo DESC";
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){?>

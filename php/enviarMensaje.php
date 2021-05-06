@@ -2,6 +2,7 @@
     session_start();
 $usuario = $_SESSION['usuario'];
 $mensaje = $_POST['mensaje'];
+$receptor = $_GET['receptor'];
 if(strlen($mensaje)>14){
     $mensajeAjuste = $mensaje;
     $mensajeAjuste = "";
@@ -32,22 +33,22 @@ if(strlen($mensaje)>21){
 }
 
 include('dbconnection.php');
-$query = "INSERT INTO chat".$usuario."_clairo(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
+$query = "INSERT INTO chat".$usuario."_".$receptor."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 include('dbconnection.php');
-$query = "INSERT INTO chatsergio884_".$usuario."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
+$query = "INSERT INTO chat".$receptor."_".$usuario."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 include('dbconnection.php');
-$query = "UPDATE chats".$usuario." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='clairo'";
+$query = "UPDATE chats".$usuario." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$receptor'";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 
-header('Location: chat.php');
+header('Location: chat.php?receptor='.$receptor);
 
 
 ?>
