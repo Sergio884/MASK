@@ -48,7 +48,25 @@ $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 
+include('dbconnection.php');
+$sql = "SELECT usuario FROM chats".$receptor."
+        WHERE usuario='".$usuario."'";
+$buscar = mysqli_query($connection,$sql);
+$existe = mysqli_num_rows($buscar);
+mysqli_close($connection);
+if ($existe==0) {
+    $chatUsuario = "chat".$usuario."_".$receptor;
+    include('dbconnection.php');
+    $insertar = "INSERT INTO chats".$receptor."(chat,ultimoMensaje,tiempo,usuario) VALUES('$chatUsuario',' ',current_timestamp(),'$usuario')";
+    mysqli_query($connection,$insertar);
+    mysqli_close($connection); 
+}
+include('dbconnection.php');
+$query = "UPDATE chats".$receptor." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$usuario'";
+$run = mysqli_query($connection,$query);
+mysqli_close($connection);
+
+
+
 header('Location: chat.php?receptor='.$receptor);
-
-
 ?>
