@@ -9,7 +9,7 @@
   </head>   
   <body>
   <?php session_start(); ?>
-    <a href="chat.php?receptor=clairo">CHAT HOT</a>
+    <a href="chat.php?receptor=defe">CHAT HOT</a>
 
   </body>
 </html>

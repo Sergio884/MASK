@@ -13,7 +13,7 @@ if(strlen($mensaje)>14){
         }else{
             $contador = 0;
         }
-        if($contador==10){
+        if($contador==14){
             $mensajeAjuste = $mensajeAjuste."\n";
             $contador = 0;
         }

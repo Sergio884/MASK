@@ -78,6 +78,8 @@ body{
 input[type="text"]{
   width:128%;
   border-radius:7px;
+  font-size:bold;
+  font-size: 19px;
 
 }
 
@@ -86,6 +88,7 @@ input[type="submit"]{
   background-color:#8eeae2;
   border-radius: 7px;
   font-size:bold;
+  font-size: 19px;
 }
 
 .conversaciones{
