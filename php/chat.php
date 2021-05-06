@@ -150,6 +150,7 @@
                   ORDER BY tiempo DESC";
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){?>
+      <a href="chat.php?receptor=<?php echo $resultado['usuario']; ?>" class="aChat" >
       <div class="contenedorConversaciones">
         <div class="foto">
         <?php
@@ -166,6 +167,7 @@
           <h6 class="ultimoMensaje"><?php echo $resultado['ultimoMensaje']; ?></h6>
         </div>
       </div>
+      </a>
      <?php }
      mysqli_close($connection);?> 
   </div>
