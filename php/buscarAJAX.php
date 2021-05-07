@@ -7,7 +7,7 @@
         $tipo = $_POST['tipo'];
         $dorm = $_POST['dormitorios'];
         $venta = $_POST['venta'];
-        $querysearch = "SELECT Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND VentaRenta like '$venta'";
+        $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND VentaRenta like '$venta'";
    
     
     //}
@@ -21,12 +21,12 @@
         while($row = mysqli_fetch_array($result_search)){
             echo "<div class='col mb-3'>
             <div class='card'>
-             <img src='data:image/jpg;base64, ".base64_encode($row['fotos'])."'  height='200' class='card-img-top'>
+             <img src='data:image/jpg;base64, ".base64_encode($row['fotos'])."' height='200' class='card-img-top'>
                 <div class='card-body'>
                     <h5 class='card-title'>".$row['Titulo']. "</h5>
                     <h6>Estado: " .$row['Estado']. "</h6>
                     <p><span class='badge badge-pill badge-secondary'>$". number_format($row['Costo']) ." MXN</span></p>
-                    <a href='' class='btn btn-primary'>Más información</a>
+                    <a href='Publicacion.php?IdInmueble=".$row['idInmueble']."' class='btn btn-primary'>Más información...</a>
                 </div>
                 <div class='card-footer text-muted'>
                     2 days ago
@@ -35,6 +35,7 @@
         </div>";
     }
     }
+    mysqli_close($conn);
 
     //$_SESSION['resultado'] = $querysearch;
     //header("Location: index.php");

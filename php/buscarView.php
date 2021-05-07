@@ -22,7 +22,7 @@
     */?>
 <nav class="navbar navbar-dark bg-dark">
 <div class="container">
-    <a href="index.php" class="navbar-brand"> Inmuebles</a>
+    <a href="buscarView.php" class="navbar-brand"> Inmuebles</a>
 </div>
 </nav>
     <div class="container">
