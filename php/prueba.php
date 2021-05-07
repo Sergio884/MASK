@@ -8,8 +8,14 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   </head>   
   <body>
-  <?php session_start(); ?>
-    <a href="chat.php?receptor=niko14">CHAT HOT</a>
+  <?php session_start(); 
+      $idInmueble = "619";
+      $vendedor = "niko14";
+
+
+  ?>
+
+    <a href="chat.php?receptor=<?php echo $vendedor; ?>&inmueble=<?php echo $idInmueble; ?>">Contactar</a>
 
   </body>
 </html>

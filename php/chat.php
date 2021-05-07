@@ -14,6 +14,7 @@
     session_start();
     $usuario = $_SESSION['usuario'];
     $receptor = $_GET['receptor'];
+  //  $inmueble = $_GET['inmueble'];
     include('dbconnection.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
@@ -187,7 +188,7 @@
     }
   </script>
     <script>
-    /** */
+    /**
      var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
