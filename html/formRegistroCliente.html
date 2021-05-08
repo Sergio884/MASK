@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="JS/Validacion.js"></script>
+    <title>Document</title>
+</head>
+<body onload="return ocultar();">
+    <form class="formulario"  onsubmit="return validar();">
+        <fieldset ><legend>Registrate</legend>
+    <div class="contenedor-campos">
+        <div class="entradas">
+            <label name="nombre">Nombre</label>
+            <input id="nombre" type="text" name="nombre" placeholder="Ej. José">
+        </div>
+        <div class="entradas">
+            <label name="apellidoP">Apellido Paterno</label>
+            <input id="apellidoP" type="text" name="apellidoP" placeholder="Ej. Rodriguez">
+        </div>
+        <div class="entradas">
+            <label name="apellidoM">Apellido Materno</label>
+            <input id="apellidoM" type="text" name="apellidoM" placeholder="Ej. Morales">
+        </div>
+        <div class="entradas">
+            <label name="apellidoM">Correo Electrónico</label>
+            <input id="apellidoM" type="text" name="apellidoM" placeholder="Ej. ejemplo@mail.com">
+        </div>
+        <div class="entradas">
+            <label name="apellidoM">Telefono</label>
+            <input id="apellidoM" type="text" name="apellidoM" placeholder="Ej. 5578946245">
+        </div>
+        <div class="entradas">
+              <label>Fecha de nacimiento</label>
+              <input id="nacimiento" type="date" max="2020-02-20" min="1910-02-20"  name="nacimiento">
+        </div> 
+    </div> 
+    </fieldset>
+        <div class="entradas">
+            <input class="boton" type="submit" value="Enviar">
+        </div>
+    </form>
+</body>
+</html>
