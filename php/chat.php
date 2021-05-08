@@ -12,16 +12,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <?php
     session_start();
+    if(!isset($_SESSION['usuario'])){
+      header("location: ../html/login.html");
+    }
     $usuario = $_SESSION['usuario'];
     $receptor = $_GET['receptor'];
-  //  $inmueble = $_GET['inmueble'];
+    $idInmueble = $_GET['idInmueble'];
     include('dbconnection.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
     ultimoMensaje VARCHAR(999),
     tiempo TIMESTAMP,
     usuario VARCHAR(50),
-    estado VARCHAR(20))";
+    idInmueble INT)";
     $run = mysqli_query($connection,$query);
     mysqli_close($connection);
   ?>
@@ -40,15 +43,14 @@
       }else {
         $chatUsuario = "chat".$usuario."_".$receptor;
         include('dbconnection.php');
-        $insertar = "INSERT INTO chats".$usuario."(chat,ultimoMensaje,tiempo,usuario) VALUES('$chatUsuario',' ',current_timestamp(),'$receptor')";
+        $insertar = "INSERT INTO chats".$usuario."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$receptor','$idInmueble')";
         mysqli_query($connection,$insertar);
         mysqli_close($connection); 
         include('dbconnection.php');
         $query = "CREATE TABLE $chatUsuario(idMensaje INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         emisor VARCHAR(50),
         mensaje VARCHAR(999),
-        tiempo TIMESTAMP,
-        idInmueble int)";
+        tiempo TIMESTAMP)";
         mysqli_query($connection,$query);
         mysqli_close($connection);
         
@@ -136,7 +138,7 @@
   </table>
 
   <div class="zonaEnvio">
-    <form action="enviarMensaje.php?receptor=<?php echo $receptor; ?>" method="post">
+    <form action="enviarMensaje.php?receptor=<?php echo $receptor; ?>&idInmueble=<?php echo $idInmueble; ?>" method="post">
       <div class="contenedorZonaEnvio">    
         <input type="text" name="mensaje" placeholder="Escribe un mensaje" autocomplete="off">
         <input type="submit" value="Enviar">
@@ -151,7 +153,7 @@
                   ORDER BY tiempo DESC";
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){?>
-      <a href="chat.php?receptor=<?php echo $resultado['usuario']; ?>" class="aChat" >
+      <a href="chat.php?receptor=<?php echo $resultado['usuario']; ?>&idInmueble=<?php echo $resultado['idInmueble']; ?>" class="aChat" >
       <div class="contenedorConversaciones">
         <div class="foto">
         <?php

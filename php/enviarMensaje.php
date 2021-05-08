@@ -1,8 +1,12 @@
 <?php
     session_start();
+    if(!isset($_SESSION['usuario'])){
+        header("location: ../html/login.html");
+      }
 $usuario = $_SESSION['usuario'];
 $mensaje = $_POST['mensaje'];
 $receptor = $_GET['receptor'];
+$idInmueble = $_GET['idInmubele'];
 if(strlen($mensaje)>14){
     $mensajeAjuste = $mensaje;
     $mensajeAjuste = "";
@@ -57,7 +61,7 @@ mysqli_close($connection);
 if ($existe==0) {
     $chatUsuario = "chat".$usuario."_".$receptor;
     include('dbconnection.php');
-    $insertar = "INSERT INTO chats".$receptor."(chat,ultimoMensaje,tiempo,usuario) VALUES('$chatUsuario',' ',current_timestamp(),'$usuario')";
+    $insertar = "INSERT INTO chats".$receptor."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$usuario','$idInmueble')";
     mysqli_query($connection,$insertar);
     mysqli_close($connection); 
 }
@@ -68,5 +72,5 @@ mysqli_close($connection);
 
 
 
-header('Location: chat.php?receptor='.$receptor);
+header('Location: chat.php?receptor='.$receptor.'&idInmueble='.$idInmueble);
 ?>

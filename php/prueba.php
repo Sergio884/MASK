@@ -9,8 +9,8 @@
   </head>   
   <body>
   <?php session_start(); 
-      $idInmueble = "619";
-      $vendedor = "niko14";
+      $idInmueble = "2";
+      $vendedor = "defe";
 
 
   ?>
