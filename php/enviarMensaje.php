@@ -6,7 +6,7 @@
 $usuario = $_SESSION['usuario'];
 $mensaje = $_POST['mensaje'];
 $receptor = $_GET['receptor'];
-$idInmueble = $_GET['idInmubele'];
+$idInmueble = $_GET['idInmueble'];
 if(strlen($mensaje)>14){
     $mensajeAjuste = $mensaje;
     $mensajeAjuste = "";
