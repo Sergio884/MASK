@@ -139,7 +139,6 @@ h6{
 }
 
 .contenedorInmueble{
-  display:flex;
   margin-left:80%;
   border-radius:8px;
 }
@@ -150,6 +149,27 @@ h6{
   border-radius: 5%;
   padding-top: 3px;
   padding-left: 3px;
+}
+
+.imgReceptor{
+  width: 200px;
+  height:200px;
+  border-radius: 50%;
+}
+
+.imgRating{
+  width: 200px;
+  height: 40px;
+}
+
+
+.receptor{
+  width: 200%;
+  margin-left:20%;
+}
+.receptor h1{
+  margin:0px;
+  padding: 4px 0px 0px 0px;
 }
 
 .contenedorZonaEnvio{
