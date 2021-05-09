@@ -175,6 +175,25 @@
      mysqli_close($connection);?> 
   </div>
 
+  <div class="inmueble">
+      <div class="contenedorInmueble">
+        <div class="fotoInmueble">
+        <?php
+          include('dbconnection.php');
+          $ordenar = "SELECT Foto FROM inmuebleFoto
+                      WHERE idInmueble='$idInmueble'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $fotoInmueble = mysqli_fetch_assoc($buscar)
+        ?>
+          <h4>Preguntaste por:</h4>
+         <?php echo '<img src="data:image;base64,'.base64_encode($fotoInmueble['Foto']).'" class="imgInmueble">'; ?>
+         <h5>Departamento en Santa Fe</h5>
+         <h5>Si quieres relajarte y disfrutar de una buena vista, este es el lugar perfecto para ti</h5>
+        </div>
+      </div>
+     <?php mysqli_close($connection); ?> 
+  </div>
+
 
           
 
