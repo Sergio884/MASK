@@ -9,13 +9,9 @@
   </head>   
   <body>
   <?php session_start(); 
-      $idInmueble = "2";
+      $idInmueble = "1";
       $vendedor = "defe";
-
-
   ?>
-
-    <a href="chat.php?receptor=<?php echo $vendedor; ?>&inmueble=<?php echo $idInmueble; ?>">Contactar</a>
-
+    <a href="chat.php?receptor=<?php echo $vendedor; ?>&idInmueble=<?php echo $idInmueble; ?>">Contactar</a>
   </body>
 </html>
