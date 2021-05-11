@@ -16,7 +16,7 @@ if(isset($_POST['save_task'])){
     $masBanios=$_POST['masBanios'];
     $metrosCuadrados=$_POST['metrosCuadrados'];
     $descripcion=$_POST['descripcion'];
-    $imagenEscapes=base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
+    $imagenEscapes=addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
     
 
     if($numDormitorios==-1){
@@ -66,7 +66,7 @@ if(isset($_POST['save_task'])){
             '$descripcion')
             ";
     
-    $query2="INSERT INTO inmueblefoto(Foto) VALUES('$imagenEscapes')";
+    $query2="INSERT INTO inmueblefoto(IdInmueble,Foto) VALUES ('1','$imagenEscapes')";
     
     $result=mysqli_query($conn,$query);
     
