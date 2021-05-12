@@ -241,7 +241,6 @@
             <img src="../imagenes/estrella00.png" alt="Rating" class="imgRating">
             <?php
           }
-
         ?>
 
 
@@ -253,15 +252,23 @@
           $ordenar = "SELECT Foto FROM inmuebleFoto
                       WHERE idInmueble='$idInmueble'";
           $buscar = mysqli_query($connection,$ordenar);
-          $fotoInmueble = mysqli_fetch_assoc($buscar)
+          $fotoInmueble = mysqli_fetch_assoc($buscar);
+          mysqli_close($connection);
         ?>
-          <h4>Preguntaste por:</h4>
+          <h3>Preguntaste por:</h3>
          <?php echo '<img src="data:image;base64,'.base64_encode($fotoInmueble['Foto']).'" class="imgInmueble">'; ?>
-         <h5>Departamento en Santa Fe</h5>
-         <h5>Si quieres relajarte y disfrutar de una buena vista, este es el lugar perfecto para ti</h5>
+         <?php
+          include('dbconnection.php');
+          $ordenar = "SELECT * FROM inmueble
+                      WHERE idInmueble='$idInmueble'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $infoInmueble = mysqli_fetch_assoc($buscar);
+          mysqli_close($connection);
+        ?>
+         <h4><?php echo $infoInmueble['Titulo']; ?></h4>
+         <h5><?php echo $infoInmueble['Descripcion']; ?></h5>
         </div>
       </div>
-     <?php mysqli_close($connection); ?> 
   </div>
 
 
