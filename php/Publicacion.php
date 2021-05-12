@@ -78,7 +78,7 @@
             <p><h3>Calificaci&oacute;n: <span id="Calificacion"></span></h3></p>
             <p><h4><span id="Correo"></span></h4></p>
             <p><h4><span id="Telefono"></span></h4></p>
-            <button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button>
+            <span id="Mensaje"><button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button></span>
             <p></p>
             <button type="button" class="w-100 btn btn-lg btn-light">Guardar a favoritos</button>
             <p></p>
@@ -211,6 +211,9 @@
         $Texto = $Texto."\";
                 </script>";
         echo $Texto;
+        echo "<script>
+                document.getElementById(\"Mensaje\").innerHTML=\"<a href=\\\"./enviarMensaje.php?receptor=".$Usuario."&IdInmueble=".$idInmueble."\\\"><button type=\\\"button\\\" class=\\\"w-100 btn btn-lg btn-light\\\">Mandar mensaje al vendedor</button></a>\"
+              </script>";
       }
     ?>
 
