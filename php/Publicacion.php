@@ -151,16 +151,60 @@
         <div class="col-md-7 col-lg-8">
           <h1><?php echo $Titulo; ?></h1>
           <h2>$<?php echo $Costo; ?></h2>
-          <h3><?php echo $Estado; ?> <?php echo $Ciudad; ?></h3>
-          <h3><?php echo $Direccion; ?> <?php echo $CP; ?></h3>
-          <p><?php if($VentaRenta == 1){echo "Venta";}else{echo "Renta";} ?></p>
-          <p><?php if($TipoInmueble == 1){echo "Casa";}else{echo "Departamento";} ?></p>
-          <p>Metros cuadrados: <?php echo $MetrosCuadrados; ?>m²</p>
-          <p>N&uacute;mero de dormitorios: <?php echo $NumeroDormitorio; ?></p>
-          <p>N&uacute;mero de baños: <?php echo $NumeroBanios; ?></p>
-          <p>Longitud: <?php echo $Longitud; ?> Latitud: <?php echo $Latitud; ?></p>
-          <p><b>Descripci&oacute;n de inmueble</b></p>
-          <p><?php echo $Descripcion; ?></p>
+          <h3><?php echo $Estado; ?>, <?php echo $Ciudad; ?></h3>
+          <h3><?php echo $Direccion; ?>. C.P.: <?php echo $CP; ?></h3>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php if($VentaRenta == 1){echo "Venta";}else{echo "Renta";} ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php if($TipoInmueble == 1){echo "Casa";}else{echo "Departamento";} ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-5">
+              <input type="text" readonly class="form-control-plaintext form-control-lg"  value="Metros Cuadrados:">
+            </div>
+            <div class="col-sm-7">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php echo $MetrosCuadrados; ?>m²">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-5">
+              <input type="text" readonly class="form-control-plaintext form-control-lg"  value="N&uacute;mero de dormitorios:">
+            </div>
+            <div class="col-sm-7">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php echo $NumeroDormitorio; ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-5">
+              <input type="text" readonly class="form-control-plaintext form-control-lg"  value="N&uacute;mero de baños:">
+            </div>
+            <div class="col-sm-7">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php echo $NumeroBanios; ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-3">
+              <input type="text" readonly class="form-control-plaintext form-control-lg"  value="Longitud:">
+            </div>
+            <div class="col-sm-2">
+              <input type="text" readonly class="form-control-plaintext form-control-lg"  value="<?php echo $Longitud; ?>">
+            </div>
+            <div class="col-sm-3">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="Latitud:">
+            </div>
+            <div class="col-sm-2">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php echo $Latitud; ?>">
+            </div>
+          </div>
+          <p><b><h4>Descripci&oacute;n de inmueble</h4></b></p>
+          <div class="form-group">
+            <textarea readonly class="form-control" rows="25"><?php echo $Descripcion; ?></textarea>
+          </div>
         </div>
         <div class="col-md-5 col-lg-4 order-md-last informacionExtra">
           <center>
