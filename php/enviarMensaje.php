@@ -6,7 +6,7 @@
 $usuario = $_SESSION['usuario'];
 $mensaje = $_POST['mensaje'];
 $receptor = $_GET['receptor'];
-$idInmueble = $_GET['idInmubele'];
+$idInmueble = $_GET['idInmueble'];
 if(strlen($mensaje)>14){
     $mensajeAjuste = $mensaje;
     $mensajeAjuste = "";
@@ -26,9 +26,9 @@ if(strlen($mensaje)>14){
     $mensaje = $mensajeAjuste;
 }
 
-if(strlen($mensaje)>25){
+if(strlen($mensaje)>12){
     $ultimoMensaje = "";
-    for($i=0;$i<26;$i++){
+    for($i=0;$i<13;$i++){
         $ultimoMensaje = $ultimoMensaje.$mensaje[$i];
     }
     $ultimoMensaje = $ultimoMensaje."...";

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>Trobify</title>
+    <!-- https://material.io/resources/icons/?style=baseline -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+          rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=outline -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+          rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=round -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+          rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=sharp -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp"
+          rel="stylesheet">
+    <!-- https://material.io/resources/icons/?style=twotone -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
+          rel="stylesheet">
+    <script type="text/javascript">
+      function EliminarInmueble(IdInmueble){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+            alert(this.responseText);
+            location.reload();
+          }
+        };
+        xmlhttp.open("GET", "../php/eliminarInmueble.php?IdInmueble="+IdInmueble, true);
+        xmlhttp.send();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Mis publicaciones</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Nuevo</button>
+        </div>
+      </div>
+    </div>
+    <span id="tabla"></span>
+    <script type="text/javascript">
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("tabla").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "../php/tablaInmueble.php", true);
+      xmlhttp.send();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  </body>
+</html>

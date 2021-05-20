@@ -7,14 +7,11 @@
   <link rel="stylesheet" href="../estilos/estiloLogin.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   </head>   
-  <body>
-  <?php session_start(); 
-      $idInmueble = "1";
-      $vendedor = "defe";
-  ?>
-    <a href="chat.php?receptor=<?php echo $vendedor; ?>&idInmueble=<?php echo $idInmueble; ?>">Contactar</a>
-    <br>
-    <br>
-    <a href="chatInicio.php">Mensajes</a>
+  <body id="login">
+      <section>
+          <div class="contenedor">
+              <h1>No tienes conversaciones</h1>
+          </div>
+      </section>
   </body>
 </html>

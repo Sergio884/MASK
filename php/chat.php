@@ -175,6 +175,113 @@
      mysqli_close($connection);?> 
   </div>
 
+  <div class="inmueble">
+      <div class="contenedorInmueble">
+       <div class="receptor">
+        <h1><?php echo $receptor; ?></h1>
+        <?php
+          include('dbconnection.php');
+          $ordenar = "SELECT fotoUsuario FROM usuario
+                      WHERE usuario='".$receptor."'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $datoUsuario = mysqli_fetch_assoc($buscar);
+          mysqli_close($connection);
+        ?>
+         <?php echo '<img src="data:image;base64,'.base64_encode($datoUsuario['fotoUsuario']).'" class="imgReceptor">'; ?>
+
+         <?php
+          include('dbconnection.php');
+          $ordenar = "SELECT Calificacion FROM usuario
+                      WHERE usuario='".$receptor."'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $calificacion = mysqli_fetch_assoc($buscar);
+          mysqli_close($connection);
+          if($calificacion['Calificacion']>4.0 && $calificacion['Calificacion']<4.5){
+            ?>
+            <img src="../imagenes/estrella45.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']>=4.5){
+            ?>
+            <img src="../imagenes/estrella50.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']>3.5 && $calificacion['Calificacion']<=4.0){
+            ?>
+            <img src="../imagenes/estrella40.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']>3.0 && $calificacion['Calificacion']<=3.5){
+            ?>
+            <img src="../imagenes/estrella35.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']<=3.0 && $calificacion['Calificacion']>2.5){
+            ?>
+            <img src="../imagenes/estrella30.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']<=2.5 && $calificacion['Calificacion']>2.0){
+            ?>
+            <img src="../imagenes/estrella25.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']<=2.0 && $calificacion['Calificacion']>1.5){
+            ?>
+            <img src="../imagenes/estrella20.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']>1.0 && $calificacion['Calificacion']<=1.5){
+            ?>
+            <img src="../imagenes/estrella15.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']<=1.0 && $calificacion['Calificacion']>0.5){
+            ?>
+            <img src="../imagenes/estrella10.png" alt="Rating" class="imgRating">
+            <?php
+          }elseif($calificacion['Calificacion']>0.0 && $calificacion['Calificacion']<=0.5){
+            ?>
+            <img src="../imagenes/estrella05.png" alt="Rating" class="imgRating">
+            <?php
+          }else{
+            ?>
+            <img src="../imagenes/estrella00.png" alt="Rating" class="imgRating">
+            <?php
+          }
+        ?>
+
+          <?php
+            include('dbconnection.php');
+            $ordenar = "SELECT idUsuario FROM usuario
+                        WHERE usuario='".$receptor."'";
+            $buscar = mysqli_query($connection,$ordenar);
+            $datoUsuario = mysqli_fetch_assoc($buscar);
+            mysqli_close($connection);
+          ?>
+
+          <a href="nuevaVisita.php?receptor=<?php echo $datoUsuario['idUsuario']; ?>&idInmueble=<?php echo $idInmueble ?>" class="aAgenda">Agendar Visita</a>
+
+
+        </div>
+
+        <div class="fotoInmueble">
+        <?php
+          include('dbconnection.php');
+          $ordenar = "SELECT * FROM inmuebleFoto
+                      WHERE idInmueble='$idInmueble'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $fotoInmueble = mysqli_fetch_assoc($buscar);
+          mysqli_close($connection);
+        ?>          
+          <h3>Preguntaste por:</h3>
+         <?php echo '<img src="data:image;base64,'.base64_encode($fotoInmueble['Foto']).'" class="imgInmueble">'; ?>
+         <?php
+          include('dbconnection.php');
+          $ordenar = "SELECT * FROM inmueble
+                      WHERE idInmueble='$idInmueble'";
+          $buscar = mysqli_query($connection,$ordenar);
+          $infoInmueble = mysqli_fetch_assoc($buscar);
+          mysqli_close($connection);
+        ?>
+         <h4><?php echo $infoInmueble['Titulo']; ?></h4>
+         <h5><?php echo $infoInmueble['Descripcion']; ?></h5>
+        </div>
+      </div>
+  </div>
+
 
           
 
