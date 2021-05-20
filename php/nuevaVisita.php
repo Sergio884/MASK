@@ -54,11 +54,6 @@
                   <button class="w-100 btn btn-lg btn-primary" onclick="showHint(Fecha.value, Hora.value)">Crear</button>
                 </div>
               </div>
-              <div class="row mb-3 form-group">
-                <div class="col-12">
-                  Le recomendamos que, antes de crear una cita, p&oacute;ngase en contacto con el vendedor del inmueble.
-                </div>
-              </div>
             </div>
             <div class="col-md-6">
             </div>

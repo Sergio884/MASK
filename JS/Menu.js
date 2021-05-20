@@ -17,7 +17,7 @@ function favoritos(){
 }
 
 function mensajes(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://telegram.org/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"../php/chatInicio.php\" scrolling=\"yes\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.add('active');
   document.getElementById("notificaciones").classList.remove('active');

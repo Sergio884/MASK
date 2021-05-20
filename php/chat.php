@@ -243,18 +243,29 @@
           }
         ?>
 
+          <?php
+            include('dbconnection.php');
+            $ordenar = "SELECT idUsuario FROM usuario
+                        WHERE usuario='".$receptor."'";
+            $buscar = mysqli_query($connection,$ordenar);
+            $datoUsuario = mysqli_fetch_assoc($buscar);
+            mysqli_close($connection);
+          ?>
+
+          <a href="nuevaVisita.php?receptor=<?php echo $datoUsuario['idUsuario']; ?>&idInmueble=<?php echo $idInmueble ?>" class="aAgenda">Agendar Visita</a>
+
 
         </div>
 
         <div class="fotoInmueble">
         <?php
           include('dbconnection.php');
-          $ordenar = "SELECT Foto FROM inmuebleFoto
+          $ordenar = "SELECT * FROM inmuebleFoto
                       WHERE idInmueble='$idInmueble'";
           $buscar = mysqli_query($connection,$ordenar);
           $fotoInmueble = mysqli_fetch_assoc($buscar);
           mysqli_close($connection);
-        ?>
+        ?>          
           <h3>Preguntaste por:</h3>
          <?php echo '<img src="data:image;base64,'.base64_encode($fotoInmueble['Foto']).'" class="imgInmueble">'; ?>
          <?php
