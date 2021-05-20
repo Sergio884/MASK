@@ -26,9 +26,9 @@ if(strlen($mensaje)>14){
     $mensaje = $mensajeAjuste;
 }
 
-if(strlen($mensaje)>25){
+if(strlen($mensaje)>12){
     $ultimoMensaje = "";
-    for($i=0;$i<26;$i++){
+    for($i=0;$i<13;$i++){
         $ultimoMensaje = $ultimoMensaje.$mensaje[$i];
     }
     $ultimoMensaje = $ultimoMensaje."...";
