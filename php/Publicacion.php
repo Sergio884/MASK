@@ -28,7 +28,7 @@
   }
 
   /*Información del vendedor*/
-  $sql = "UPDATE inmueble SET Visitas = ".$Visitas." WHERE idInmueble = ".$idInmueble."";
+  $sql = "UPDATE Inmueble SET Visitas = ".$Visitas." WHERE IdInmueble = ".$idInmueble."";
   if(mysqli_query($connection, $sql)){
   }
   $sql = "SELECT * FROM Usuario WHERE IdUsuario = ".$IdUsuario."";
