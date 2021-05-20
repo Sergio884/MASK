@@ -59,7 +59,7 @@ function venta(){
 }
 
 function publicaciones(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://ubuntu.com/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"./listaInmuebles.html\" scrolling=\"yes\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
