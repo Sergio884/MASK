@@ -11,6 +11,15 @@
     if ($existe>0) {
       session_start();
       $_SESSION['usuario']=$usuario;
+      include('dbconnectionChat.php');
+      $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+      chat VARCHAR(106),
+      ultimoMensaje VARCHAR(999),
+      tiempo TIMESTAMP,
+      usuario VARCHAR(50),
+      idInmueble INT)";
+      $run = mysqli_query($connection,$query);
+      mysqli_close($connection);
       header('Location: ../html/menu.html');
     }else {
       include('dbconnection.php');
