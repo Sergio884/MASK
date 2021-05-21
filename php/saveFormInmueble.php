@@ -1,11 +1,11 @@
 <?php
 include("db.php");
 
-session_start();
+//session_start();
     if(!isset($_SESSION['usuario'])){
       header("location: ../html/login.html");
     }
-    $idUsuario = $_SESSION['usuario'];
+    $NomUsuario = $_SESSION['usuario'];
 
 if(isset($_POST['save_task'])){
     $titulo=$_POST['titulo'];
@@ -22,9 +22,11 @@ if(isset($_POST['save_task'])){
     $masBanios=$_POST['masBanios'];
     $metrosCuadrados=$_POST['metrosCuadrados'];
     $descripcion=$_POST['descripcion'];
-   
     
-
+    $query="SELECT IdUsuario FROM usuario WHERE (Usuario='$NomUsuario')";
+    $Res=mysqli_query($conn,$query);
+    $row=mysqli_fetch_assoc($Res);
+    $idUsuario=$row['IdUsuario'];
     if($numDormitorios==-1){
         $numDormitorios=$masDormitorio;
     }
@@ -47,6 +49,7 @@ if(isset($_POST['save_task'])){
 
     $query="INSERT INTO inmueble(
             Titulo,
+            IdUsuario,
             TipoInmueble,
             VentaRenta,
             Costo,
@@ -59,6 +62,7 @@ if(isset($_POST['save_task'])){
             MetrosCuadrados,
             Descripcion)
     VALUES ('$titulo',
+            '$idUsuario',
             '$tipoPropiedad',
             '$tipoVenta',
             '$costo',
@@ -79,6 +83,14 @@ if(isset($_POST['save_task'])){
     else{
         echo 'Guardado Form';
     }
+
+
+    $query= "SELECT IdInmueble FROM inmueble WHERE Titulo='$titulo' AND IdUsuario='$idUsuario'";
+    $Res=mysqli_query($conn,$query);
+    $row=mysqli_fetch_assoc($Res);
+    $idInmueble=$row['IdInmueble'];
+
+
 //*****************************Guardado de Multiples Imagenes */
     if(isset($_FILES["file"])){
         $reporte=null;
@@ -86,7 +98,7 @@ if(isset($_POST['save_task'])){
         foreach ($_FILES["file"]["error"] as $clave => $error){
             if ($error == UPLOAD_ERR_OK) {
                 $imagenEscapes=addslashes(file_get_contents($_FILES["file"]["tmp_name"][$clave]));   
-                $query2="INSERT INTO inmueblefoto(IdInmueble,Foto) VALUES ('1','$imagenEscapes')";
+                $query2="INSERT INTO inmueblefoto(IdInmueble,Foto) VALUES ('$idInmueble','$imagenEscapes')";
                 $result=mysqli_query($conn,$query2);
                 if(!$result){
                     die(" Query fail");
@@ -99,6 +111,8 @@ if(isset($_POST['save_task'])){
         mysqli_close($conn);
 
     }
+
+    header('Location: ../html/listaInmuebles.html');
    
 }
 
