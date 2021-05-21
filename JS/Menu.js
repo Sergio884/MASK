@@ -1,9 +1,9 @@
 function inicio(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://www.wikipedia.org/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://www.wikipedia.org/\"></iframe>"
 }
 
 function favoritos(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://ubuntu.com/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://ubuntu.com/\"></iframe>"
   document.getElementById("favoritos").classList.add('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -17,7 +17,7 @@ function favoritos(){
 }
 
 function mensajes(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"../php/chatInicio.php\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/chatInicio.php\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.add('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -31,7 +31,7 @@ function mensajes(){
 }
 
 function notificaciones(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://ubuntu.com/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://ubuntu.com/\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.add('active');
@@ -45,7 +45,7 @@ function notificaciones(){
 }
 
 function venta(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"455%\" src=\"../php/formRegistroInmueble.php\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/formRegistroInmueble.php\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -59,7 +59,7 @@ function venta(){
 }
 
 function publicaciones(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"./listaInmuebles.html\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"./listaInmuebles.html\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -73,7 +73,7 @@ function publicaciones(){
 }
 
 function visitas(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"./listaVisita.html\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"./listaVisita.html\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -87,7 +87,7 @@ function visitas(){
 }
 
 function usuario(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://telegram.org/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://telegram.org/\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -101,7 +101,7 @@ function usuario(){
 }
 
 function configuracion(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://ubuntu.com/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://ubuntu.com/\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -115,7 +115,7 @@ function configuracion(){
 }
 
 function problema(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://telegram.org/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://telegram.org/\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
@@ -129,7 +129,7 @@ function problema(){
 }
 
 function informacion(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"https://ubuntu.com/\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://ubuntu.com/\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
