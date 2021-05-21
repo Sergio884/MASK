@@ -14,15 +14,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/forms.css">
+    <link rel="stylesheet" href="../estilos/gridInmueble.css">
     <script src="../JS/ValidacionFormInmueble.js"></script>
     <title>Document</title>
 </head>
 <body onload="return ocultar();"> <!-- action="saveFormInmueble.php" method="POST"-->
-    <form action="saveFormInmueble.php" method="POST" class="formulario" enctype="multipart/form-data" onsubmit="return validar();">
+    <form onsubmit="return validar();" action="saveFormInmueble.php" method="POST" class="formulario" enctype="multipart/form-data" >
         <fieldset>
         <legend>¿Que tipo de alojamiento tienes?</legend>
            <div class="contenedor-campos" id="contenedor1">
-                <div class="entradas">
+                <div class="entradas titulo">
                     <label>Titulo</label>
                     <input name="titulo" placeholder="eje:Casa de dos pisos">
                 </div>
@@ -135,16 +136,19 @@
                 
         </fieldset>
         <fieldset>
-            <legend>Caracteristicas del Inmueble</legend>
+            <legend>características del Inmueble</legend>
             <div class="contenedor-campos3">
                 <div class="entradas descripcion">
                     <label>Describe el Inmueble</label>
                     <textarea name="descripcion" rows="5"id="descripcion" placeholder="eje: Es un Inmueble de fachada azul... "></textarea>
                 </div>
                 <div class="entradas SubirFotos">
-                    <label>Describe el Inmueble</label>
-                    <input type="file" name="image" id="foto" value="Subir Foto">
-                </div>  
+                    <label>Sube imagenes para tu inmueble</label>
+                        <div class="div_file"id="div_file">
+                            <p class="txtBtn"id="texto">Subir imagenes</p>
+                            <input class="btn_enviar"id="btn_enviar" name="file[]"  type="file" multiple/>
+                        </div>
+                </div>
             </div>
         </fieldset>
         <div class="entradas">
@@ -154,3 +158,10 @@
     </form>
 </body>
 </html>
+
+<!-- <input type="file" name="file[]" id="foto" value="Subir Foto" multiple> -->
+
+<!-- <div class="entradas SubirFotos">
+                    <label>Subir fotos del inmueble</label>
+                    
+                </div>   -->
