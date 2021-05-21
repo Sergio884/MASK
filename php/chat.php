@@ -266,7 +266,7 @@
           $fotoInmueble = mysqli_fetch_assoc($buscar);
           mysqli_close($connection);
         ?>          
-          <h3>Preguntaste por:</h3>
+          <h3>Se preguntó por:</h3>
          <?php echo '<img src="data:image;base64,'.base64_encode($fotoInmueble['Foto']).'" class="imgInmueble">'; ?>
          <?php
           include('dbconnection.php');

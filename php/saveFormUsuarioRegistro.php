@@ -39,7 +39,8 @@ include("db.php");
     $result=mysqli_query($conn,$query);
     
     mysqli_close($conn);
-    
+
+    header('Location: validacion.php?Usuario='.$usuario.'&Password='.$password.'');
     
     if(!$result){
         die(" Query fail");
