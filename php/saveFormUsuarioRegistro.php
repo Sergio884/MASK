@@ -1,11 +1,6 @@
 
 
 <?php 
-
-
-include("db.php"); 
-
-
  if(isset($_POST['save_task'])){
      $usuario=$_POST['usuario'];
      $password=$_POST['password'];
@@ -15,7 +10,15 @@ include("db.php");
      $telefono=$_POST['telefono'];
      $nacimiento=$_POST['nacimiento'];
      $imagen=addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
-    
+
+     include("db.php"); 
+     $query = "SELECT * FROM usuario WHERE Usuario='$usuario' or Correo='$correo'";
+     $run = mysqli_query($conn,$query);
+     $existe = mysqli_num_rows($run);
+    echo $existe;
+     if ($existe>0) {
+       header('Location: formRegistroUsuario.php');
+     }else{
      $query="INSERT INTO usuario(
             Usuario,
             Password,
@@ -48,8 +51,7 @@ include("db.php");
     else{
         echo 'Guardado Form';
     }
-
-   
+    } 
 }
 
 ?>

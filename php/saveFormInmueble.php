@@ -1,6 +1,12 @@
 <?php
 include("db.php");
 
+session_start();
+    if(!isset($_SESSION['usuario'])){
+      header("location: ../html/login.html");
+    }
+    $idUsuario = $_SESSION['usuario'];
+
 if(isset($_POST['save_task'])){
     $titulo=$_POST['titulo'];
     $tipoPropiedad=$_POST['tipoPropiedad'];
