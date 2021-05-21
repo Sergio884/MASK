@@ -36,23 +36,23 @@ if(strlen($mensaje)>12){
     $ultimoMensaje = $mensaje;
 }
 
-include('dbconnection.php');
+include('dbconnectionChat.php');
 $query = "INSERT INTO chat".$usuario."_".$receptor."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
-include('dbconnection.php');
+include('dbconnectionChat.php');
 $query = "INSERT INTO chat".$receptor."_".$usuario."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
-include('dbconnection.php');
+include('dbconnectionChat.php');
 $query = "UPDATE chats".$usuario." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$receptor'";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 
-include('dbconnection.php');
+include('dbconnectionChat.php');
 $sql = "SELECT usuario FROM chats".$receptor."
         WHERE usuario='".$usuario."'";
 $buscar = mysqli_query($connection,$sql);
@@ -60,12 +60,12 @@ $existe = mysqli_num_rows($buscar);
 mysqli_close($connection);
 if ($existe==0) {
     $chatUsuario = "chat".$usuario."_".$receptor;
-    include('dbconnection.php');
+    include('dbconnectionChat.php');
     $insertar = "INSERT INTO chats".$receptor."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$usuario','$idInmueble')";
     mysqli_query($connection,$insertar);
     mysqli_close($connection); 
 }
-include('dbconnection.php');
+include('dbconnectionChat.php');
 $query = "UPDATE chats".$receptor." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$usuario'";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);

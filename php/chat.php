@@ -18,7 +18,7 @@
     $usuario = $_SESSION['usuario'];
     $receptor = $_GET['receptor'];
     $idInmueble = $_GET['idInmueble'];
-    include('dbconnection.php');
+    include('dbconnectionChat.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
     ultimoMensaje VARCHAR(999),
@@ -31,7 +31,7 @@
     <table class="contenidoTabla" id="divu" cellspacing="0">
     <tbody>
     <?php
-      include('dbconnection.php');
+      include('dbconnectionChat.php');
       $sql = "SELECT chat FROM chats".$usuario."
                       WHERE usuario='".$receptor."'";
       $buscar = mysqli_query($connection,$sql);
@@ -42,11 +42,11 @@
         $chatUsuario = $chat['chat'];
       }else {
         $chatUsuario = "chat".$usuario."_".$receptor;
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $insertar = "INSERT INTO chats".$usuario."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$receptor','$idInmueble')";
         mysqli_query($connection,$insertar);
         mysqli_close($connection); 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "CREATE TABLE $chatUsuario(idMensaje INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         emisor VARCHAR(50),
         mensaje VARCHAR(999),
@@ -54,51 +54,51 @@
         mysqli_query($connection,$query);
         mysqli_close($connection);
         
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','POLÍTICAS DEL CHAT',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection);      
 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Los mensajes enviados son responsabilidad de los usuarios',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection);      
 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Los mensajes están protegidos solo para que ustedes puedan verlos',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection); 
 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Evite dar depósitos de dinero directos',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection); 
 
 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','No envíe sus datos bancarios',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection); 
 
         
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Evité lenguaje en incite el odio',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection); 
 
         
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','El respeto mutuo hacer fuerte a nuestra comunidad ',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection); 
 
 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Hola $usuario yo soy $receptor',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection);
 
-        include('dbconnection.php');
+        include('dbconnectionChat.php');
         $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','¿En qué puedo ayudarte?',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection);
@@ -106,7 +106,7 @@
     ?>
 
       <?php
-      include('dbconnection.php');
+      include('dbconnectionChat.php');
       $ordenar = "SELECT * FROM ".$chatUsuario."
                   ORDER BY idMensaje ASC";
 
@@ -148,7 +148,7 @@
 
   <div class="conversaciones">
       <?php
-      include('dbconnection.php');
+      include('dbconnectionChat.php');
       $ordenar = "SELECT * FROM chats".$usuario."
                   ORDER BY tiempo DESC";
       $run = mysqli_query($connection,$ordenar);
@@ -157,9 +157,10 @@
       <div class="contenedorConversaciones">
         <div class="foto">
         <?php
+          include('dbconnection.php');
           $ordenar = "SELECT fotoUsuario FROM usuario
                       WHERE usuario='".$resultado['usuario']."'";
-          $buscar = mysqli_query($connection,$ordenar);
+          $buscar = mysqli_query($conn,$ordenar);
           $datoUsuario = mysqli_fetch_assoc($buscar)
         ?>
          <?php echo '<img src="data:image;base64,'.base64_encode($datoUsuario['fotoUsuario']).'" class="imgChat">'; ?>
@@ -172,6 +173,7 @@
       </div>
       </a>
      <?php }
+     mysqli_close($conn);
      mysqli_close($connection);?> 
   </div>
 
@@ -183,9 +185,9 @@
           include('dbconnection.php');
           $ordenar = "SELECT fotoUsuario FROM usuario
                       WHERE usuario='".$receptor."'";
-          $buscar = mysqli_query($connection,$ordenar);
+          $buscar = mysqli_query($conn,$ordenar);
           $datoUsuario = mysqli_fetch_assoc($buscar);
-          mysqli_close($connection);
+          mysqli_close($conn);
         ?>
          <?php echo '<img src="data:image;base64,'.base64_encode($datoUsuario['fotoUsuario']).'" class="imgReceptor">'; ?>
 
@@ -193,9 +195,9 @@
           include('dbconnection.php');
           $ordenar = "SELECT Calificacion FROM usuario
                       WHERE usuario='".$receptor."'";
-          $buscar = mysqli_query($connection,$ordenar);
+          $buscar = mysqli_query($conn,$ordenar);
           $calificacion = mysqli_fetch_assoc($buscar);
-          mysqli_close($connection);
+          mysqli_close($conn);
           if($calificacion['Calificacion']>4.0 && $calificacion['Calificacion']<4.5){
             ?>
             <img src="../imagenes/estrella45.png" alt="Rating" class="imgRating">
@@ -247,9 +249,9 @@
             include('dbconnection.php');
             $ordenar = "SELECT idUsuario FROM usuario
                         WHERE usuario='".$receptor."'";
-            $buscar = mysqli_query($connection,$ordenar);
+            $buscar = mysqli_query($conn,$ordenar);
             $datoUsuario = mysqli_fetch_assoc($buscar);
-            mysqli_close($connection);
+            mysqli_close($conn);
           ?>
 
           <a href="nuevaVisita.php?receptor=<?php echo $datoUsuario['idUsuario']; ?>&idInmueble=<?php echo $idInmueble ?>" class="aAgenda">Agendar Visita</a>
@@ -262,9 +264,9 @@
           include('dbconnection.php');
           $ordenar = "SELECT * FROM inmuebleFoto
                       WHERE idInmueble='$idInmueble'";
-          $buscar = mysqli_query($connection,$ordenar);
+          $buscar = mysqli_query($conn,$ordenar);
           $fotoInmueble = mysqli_fetch_assoc($buscar);
-          mysqli_close($connection);
+          mysqli_close($conn);
         ?>          
           <h3>Se preguntó por:</h3>
          <?php echo '<img src="data:image;base64,'.base64_encode($fotoInmueble['Foto']).'" class="imgInmueble">'; ?>
@@ -272,9 +274,9 @@
           include('dbconnection.php');
           $ordenar = "SELECT * FROM inmueble
                       WHERE idInmueble='$idInmueble'";
-          $buscar = mysqli_query($connection,$ordenar);
+          $buscar = mysqli_query($conn,$ordenar);
           $infoInmueble = mysqli_fetch_assoc($buscar);
-          mysqli_close($connection);
+          mysqli_close($conn);
         ?>
          <h4><?php echo $infoInmueble['Titulo']; ?></h4>
          <h5><?php echo $infoInmueble['Descripcion']; ?></h5>
