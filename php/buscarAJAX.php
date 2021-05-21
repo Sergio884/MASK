@@ -26,10 +26,7 @@
                     <h5 class='card-title'>".$row['Titulo']. "</h5>
                     <h6>Estado: " .$row['Estado']. "</h6>
                     <p><span class='badge badge-pill badge-secondary'>$". number_format($row['Costo']) ." MXN</span></p>
-                    <a href='Publicacion.php?IdInmueble=".$row['idInmueble']."' class='btn btn-primary'>Más información...</a>
-                </div>
-                <div class='card-footer text-muted'>
-                    2 days ago
+                    <a href='Publicacion.php?IdInmueble=".$row['idInmueble']."' class='btn btn-primary'>Ver inmueble</a>
                 </div>
             </div>
         </div>";

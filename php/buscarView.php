@@ -75,7 +75,7 @@
                             <option value="%%">Tipo...</option>
                         </select>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <select name="dormitorios" id="dormitorios" class="form-control">
                             <option value="%%">Dormitorios...</option>
                             <option value="2">2</option>
@@ -90,6 +90,9 @@
                     <div class="col-md-1">
                         <button type="button" class="btn btn-primary" id="boton">Buscar</button>
                     </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-danger" id="clear">Limpiar</button>
+                    </div>
                 </div>
         <br>
         <div class="row row-cols-1 row-cols-md-4" id="contenido"></div>
@@ -98,6 +101,15 @@
 
 
     <script type="text/javascript">
+
+    $('#clear').click(function(data){
+        document.getElementById('estado').value = '%%';
+        document.getElementById('tipo').value = '%%';
+        document.getElementById('dormitorios').value = '%%';
+        document.getElementById('venta').value = '%%';
+        $('#contenido').html(data);
+    });
+
     
     $('#boton').click(function(){
         var estado = document.getElementById('estado').value;
