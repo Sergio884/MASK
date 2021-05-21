@@ -45,7 +45,7 @@ function notificaciones(){
 }
 
 function venta(){
-  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"370%\" src=\"../php/formRegistroInmueble.php\" scrolling=\"yes\"></iframe>"
+  document.getElementById("pantalla").innerHTML = "<iframe width=\"101%\" height=\"455%\" src=\"../php/formRegistroInmueble.php\" scrolling=\"yes\"></iframe>"
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
