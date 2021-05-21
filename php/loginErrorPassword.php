@@ -12,7 +12,7 @@
           <div class="contenedor">
               <h1>Contraseña incorrecta</h1>
                 <div class="contenedor-login">
-                  <form action="../php/validacion.php" method="post">
+                  <form action="../php/validacion.php" method="GET">
                     <input type="text" name="Usuario" value="<?php echo $_GET['usuario']; ?>" placeholder="&#xf007; Usuario" style="font-family:Arial, FontAwesome" required>
                     <div class="inputPassword"><input type="password" name="Password" placeholder="&#xf084; Contraseña" style="font-family:Arial, FontAwesome"  required>
                       <div class="olvidar">¿Olvidaste tu contraseña? <a class="clickAqui"href="#">CLICK AQUÍ</a></div>
@@ -20,7 +20,7 @@
                     <input type="submit" value="Ingresar" id="btn">                
                   </form>                  
                 </div>
-                <p>¿No tienes cuenta? <a href="registro.html">¡Regístrate ahora!</a></p>
+                <p>¿No tienes cuenta? <a href="formRegistroUsuario.php">¡Regístrate ahora!</a></p>
           </div>
 
       </section>
