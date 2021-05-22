@@ -6,7 +6,7 @@
   $usuario = $_SESSION['usuario'];
   include('dbconnection.php');
   $sql = "SELECT * FROM Usuario WHERE Usuario='".$usuario."' OR Correo='".$usuario."';";
-  $result = mysqli_query($connection, $sql);
+  $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
     $idUsuario = $row['IdUsuario'];
@@ -26,7 +26,7 @@
       <tbody>";
 
     $sql = "SELECT * FROM Visitas WHERE Interesado='".$idUsuario."' OR Vendedor='".$idUsuario."';";
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)) {
         $Interesado = $row['Interesado'];
@@ -35,19 +35,19 @@
         $Hora = $row['Hora'];
         $Inmueble = $row['Inmueble'];
         $sql = "SELECT * FROM Usuario WHERE IdUsuario='".$Interesado."'";
-        $result2 = mysqli_query($connection, $sql);
+        $result2 = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result2) > 0){
           $row2 = mysqli_fetch_array($result2);
           $UsuarioInteresado = $row2['Usuario'];
         }
         $sql = "SELECT * FROM Usuario WHERE IdUsuario='".$Vendedor."'";
-        $result2 = mysqli_query($connection, $sql);
+        $result2 = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result2) > 0){
           $row2 = mysqli_fetch_array($result2);
           $VendedorInteresado = $row2['Usuario'];
         }
         $sql = "SELECT * FROM Inmueble WHERE IdInmueble='".$Inmueble."'";
-        $result2 = mysqli_query($connection, $sql);
+        $result2 = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result2) > 0){
           $row2 = mysqli_fetch_array($result2);
           $Inmueble = $row2['Titulo'];
@@ -69,5 +69,5 @@
   else{
     echo "Error en la sesión";
   }
-  mysqli_close($connection);
+  mysqli_close($conn);
  ?>

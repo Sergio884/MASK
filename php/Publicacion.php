@@ -4,7 +4,7 @@
 
   /*Información del inmueble*/
   $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
-  $result = mysqli_query($connection, $sql);
+  $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
     $NumeroDormitorio = $row['NumeroDormitorios'];
@@ -29,10 +29,10 @@
 
   /*Información del vendedor*/
   $sql = "UPDATE Inmueble SET Visitas = ".$Visitas." WHERE IdInmueble = ".$idInmueble."";
-  if(mysqli_query($connection, $sql)){
+  if(mysqli_query($conn, $sql)){
   }
   $sql = "SELECT * FROM Usuario WHERE IdUsuario = ".$IdUsuario."";
-  $result = mysqli_query($connection, $sql);
+  $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
     $Usuario = $row['Usuario'];
@@ -117,7 +117,7 @@
           <?php
             /*Información de las imagenes*/
             $sql = "SELECT * FROM InmuebleFoto WHERE IdInmueble=".$idInmueble."";
-            $result = mysqli_query($connection, $sql);
+            $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) > 0){
               echo "<button type=\"button\" data-bs-target=\"#myCarousel\" data-bs-slide-to=\"0\" class=\"active\" aria-current=\"true\" aria-label=\"Slide 1\"></button>";
               $Contador = 1;

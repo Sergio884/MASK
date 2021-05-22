@@ -6,7 +6,7 @@
   $usuario = $_SESSION['usuario'];
   include('dbconnection.php');
   $sql = "SELECT * FROM Usuario WHERE Usuario='".$usuario."' OR Correo='".$usuario."';";
-  $result = mysqli_query($connection, $sql);
+  $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
     $idUsuario = $row['IdUsuario'];
@@ -23,7 +23,7 @@
     <tbody>";
 
     $sql = "SELECT * FROM Inmueble WHERE IdUsuario='".$idUsuario."' ORDER BY Visitas DESC";
-    $result = mysqli_query($connection,$sql);
+    $result = mysqli_query($conn,$sql);
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
         $IdInmueble = $row['IdInmueble'];
@@ -44,5 +44,5 @@
   else{
     echo "Error en la sesión";
   }
-  mysqli_close($connection);
+  mysqli_close($conn);
  ?>

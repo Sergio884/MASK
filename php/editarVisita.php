@@ -7,11 +7,11 @@
   include('dbconnection.php');
 
   $sql = "UPDATE Visitas SET Fecha='".$FechaN."', Hora='".$HoraN."' WHERE Interesado='".$Interesado."' AND Vendedor='".$Vendedor."' AND Fecha='".$Fecha."';";
-  if(mysqli_query($connection, $sql)){
+  if(mysqli_query($conn, $sql)){
     echo "Información guardada correctamente";
   }
   else{
     echo "Error al guardar la información";
   }
-  mysqli_close($connection);
+  mysqli_close($conn);
  ?>
