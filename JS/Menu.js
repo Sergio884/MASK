@@ -3,7 +3,7 @@ function inicio(){
   xmlhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       if(this.responseText == "Si"){
-        document.getElementById("pantalla").innerHTML = "<iframe src=\"https://www.wikipedia.org/\"></iframe>";
+        document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/buscarView.php\"></iframe>";
       }
       else{
         window.location.replace("./Login.html");
@@ -12,6 +12,20 @@ function inicio(){
   };
   xmlhttp.open("GET", "../php/comprobarSesion.php", true);
   xmlhttp.send();
+}
+
+function buscar(){
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/buscarView.php\"></iframe>";
+  document.getElementById("favoritos").classList.remove('active');
+  document.getElementById("mensajes").classList.remove('active');
+  document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("venta").classList.remove('active');
+  document.getElementById("publicaciones").classList.remove('active');
+  document.getElementById("visitas").classList.remove('active');
+  document.getElementById("usuario").classList.remove('active');
+  document.getElementById("configuracion").classList.remove('active');
+  document.getElementById("problema").classList.remove('active');
+  document.getElementById("informacion").classList.remove('active');
 }
 
 function favoritos(){
