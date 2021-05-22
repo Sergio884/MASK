@@ -39,9 +39,18 @@
        iframe {
          position: absolute;
          top: 48px;
-         left: 225.16px;
+         left: 0px;
          height: calc(100% - 48px);
-         width: calc(100% - 225.16px);
+         width: 100%;
+       }
+       @media screen and (min-width: 766px) {
+         iframe {
+           position: absolute;
+           top: 48px;
+           left: 225.16px;
+           height: calc(100% - 48px);
+           width: calc(100% - 225.16px);
+         }
        }
    </style>
 
