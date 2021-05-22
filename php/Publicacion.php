@@ -40,38 +40,38 @@
     $Calificacion = $row['Calificacion'];
     $Telefono = $row['Telefono'];
     $ImagenUsuario = $row['FotoUsuario'];
-    if($Calificacion < 0.5){
-      $Calificacion = "<img src=\"../imagenes/estrella00.png\">";
+    if($Calificacion >= 4.5){
+      $Calificacion = "<img src=\"../imagenes/estrella50.png\">";
     }
-    elseif ($Calificacion < 1) {
-      $Calificacion = "<img src=\"../imagenes/estrella05.png\">";
-    }
-    elseif ($Calificacion < 1.5) {
-      $Calificacion = "<img src=\"../imagenes/estrella10.png\">";
-    }
-    elseif ($Calificacion < 2) {
-      $Calificacion = "<img src=\"../imagenes/estrella15.png\">";
-    }
-    elseif ($Calificacion < 2.5) {
-      $Calificacion = "<img src=\"../imagenes/estrella20.png\">";
-    }
-    elseif ($Calificacion < 3) {
-      $Calificacion = "<img src=\"../imagenes/estrella25.png\">";
-    }
-    elseif ($Calificacion < 3.5) {
-      $Calificacion = "<img src=\"../imagenes/estrella30.png\">";
-    }
-    elseif ($Calificacion < 4) {
-      $Calificacion = "<img src=\"../imagenes/estrella35.png\">";
-    }
-    elseif ($Calificacion < 4.5) {
-      $Calificacion = "<img src=\"../imagenes/estrella40.png\">";
-    }
-    elseif ($Calificacion < 4.8) {
+    elseif ($Calificacion > 4) {
       $Calificacion = "<img src=\"../imagenes/estrella45.png\">";
     }
+    elseif ($Calificacion > 3.5) {
+      $Calificacion = "<img src=\"../imagenes/estrella40.png\">";
+    }
+    elseif ($Calificacion > 3) {
+      $Calificacion = "<img src=\"../imagenes/estrella35.png\">";
+    }
+    elseif ($Calificacion > 2.5) {
+      $Calificacion = "<img src=\"../imagenes/estrella30.png\">";
+    }
+    elseif ($Calificacion > 2) {
+      $Calificacion = "<img src=\"../imagenes/estrella25.png\">";
+    }
+    elseif ($Calificacion > 1.5) {
+      $Calificacion = "<img src=\"../imagenes/estrella20.png\">";
+    }
+    elseif ($Calificacion > 1) {
+      $Calificacion = "<img src=\"../imagenes/estrella15.png\">";
+    }
+    elseif ($Calificacion > 0.5) {
+      $Calificacion = "<img src=\"../imagenes/estrella10.png\">";
+    }
+    elseif ($Calificacion > 0) {
+      $Calificacion = "<img src=\"../imagenes/estrella05.png\">";
+    }
     else {
-      $Calificacion = "<img src=\"../imagenes/estrella50.png\">";
+      $Calificacion = "<img src=\"../imagenes/estrella00.png\">";
     }
   }
  ?>
