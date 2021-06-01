@@ -16,24 +16,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
-<?php/* 
-               $querynav = "SELECT * FROM inmueble"; 
-               $result_in = mysqli_query($conn, $querynav);
-               $num = mysqli_num_rows($result_in);
-    */?>
-<nav class="navbar navbar-dark bg-dark">
-<div class="container">
-    <a href="buscarView.php" class="navbar-brand"> Inmuebles</a>
-</div>
-</nav>
+<header class="imagenFondo">
     <div class="container">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-            <h1 class="display-4">Buscar Inmuebles</h1>
+            <h1 class="display-4 textoPrincipal">Buscar Inmuebles</h1>
             <div class="container">
-            <p class="text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum aliquid illum ipsa, <br> aspernatur praesentium quibusdam id, sed excepturi exercitationem</p>
+            <p class="texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum aliquid illum ipsa, <br> aspernatur praesentium quibusdam id, sed excepturi exercitationem</p>
             </div>
         </div>
-                <div class="row">
+         <!--FILTROS DE BUSQUEDA-->
+         <div class="row">
                     <div class="col-md-3">
                         <select name="estado" id="estado" class="form-control">
                             <option value="%%">Estado...</option>
@@ -89,13 +81,24 @@
                         </select>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="btn btn-primary" id="boton">Buscar</button>
+                        <button type="button" class="btn btn-primary botonesPrincipales" id="boton">Buscar</button>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="btn btn-danger" id="clear">Limpiar</button>
+                        <button type="button" class="btn btn-danger botonesPrincipales" id="clear">Limpiar</button>
                     </div>
                 </div>
+    </div>
+    
+</header>
+<?php/* 
+               $querynav = "SELECT * FROM inmueble"; 
+               $result_in = mysqli_query($conn, $querynav);
+               $num = mysqli_num_rows($result_in);
+    */?>
+<div class="container">
+   
         <br>
+        <!--CARDS INMUEBLES-->
         <div class="row row-cols-1 row-cols-md-4" id="contenido"></div>
     </div>
 
@@ -131,6 +134,29 @@
                 console.log("error");
             });
         });
+
+    //Cambiar el color del boton usando session
+    function favoritos(indice){
+
+        var estado = document.getElementById('estado').value;
+        var tipo = document.getElementById('tipo').value;
+        var dormitorios = document.getElementById('dormitorios').value;
+        var venta = document.getElementById('venta').value;
+
+        var ruta = "estado="+estado+"&tipo="+tipo+"&dormitorios="+dormitorios+"&venta="+venta+"&indice="+indice;
+        
+            $.ajax({
+                url: "buscarAJAX.php",
+                type: 'POST',
+                data: ruta,
+            })
+            .done(function(data){
+                $('#contenido').html(data);
+            })
+            .fail(function(){
+                console.log("error");
+            });
+        }
         </script>
 <!--SCRIPTS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

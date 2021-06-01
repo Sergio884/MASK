@@ -1,4 +1,64 @@
 .favorito{
     position: absolute;
-    margin: 20px 0 -20px 200px;
+    margin: 20px 0 -20px 440px;
+    border: none;
+}
+
+.botonesPrincipales{
+    width: 100%;
+    margin: 15px 0 0 0;
+    border-color: unset;
+}
+
+.imagenFondo{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ), url(../imagenes/2.jpg);
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+    margin-bottom: 17px;
+}
+.texto{
+    font-weight: 400;
+}
+
+.textoPrincipal{
+    font-weight: 450;
+}
+
+@media (min-width: 768px) {
+    .favorito{
+        margin: 20px 0 -20px 110px;
+    }
+    .botonesPrincipales{
+        width: 60px;
+        margin: 0;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 992px) {
+    .favorito{
+        margin: 20px 0 -20px 160px;
+    }
+    .botonesPrincipales{
+        width: 70px;
+        margin: 0;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .favorito{
+        margin: 20px 0 -20px 200px;
+    }
+    .botonesPrincipales{
+        width: 70px;
+        margin: 0;
+        font-size: 15px;
+    }   
 }

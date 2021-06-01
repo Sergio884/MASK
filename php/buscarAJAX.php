@@ -1,17 +1,37 @@
 <?php
     include("db.php");
-
-   // $querysearch = "SELECT * FROM inmueble, inmueblefoto WHERE inmueble.idInmueble = inmueblefoto.idInmueble";
-    //if(isset($_POST['busqueda'])){
-        $estado = $_POST['estado'];
-        $tipo = $_POST['tipo'];
-        $dorm = $_POST['dormitorios'];
-        $venta = $_POST['venta'];
-        $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND VentaRenta like '$venta'";
-   
     
-    //}
+    $estado = $_POST['estado'];
+    $tipo = $_POST['tipo'];
+    $dorm = $_POST['dormitorios'];
+    $venta = $_POST['venta'];
+    //QUERY BUSQUEDA
+    $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND VentaRenta like '$venta'";    
+    //QUERY FAVORITOS
+    $queryFav = "SELECT * FROM favoritos";
+    $resultFav = mysqli_query($conn, $queryFav); 
     $result_search = mysqli_query($conn, $querysearch);
+
+    $arrayFav = Array();
+    while($rowFav = mysqli_fetch_array($resultFav)){
+        $arrayFav[] = $rowFav['idInmueble'];
+    }
+
+    if(isset($_POST['indice'])){
+        $id = $_POST['indice'];
+        if(in_array($id, $arrayFav)){
+            $queryInFav ="DELETE FROM favoritos WHERE idInmueble = $id";
+            $resultInFav = mysqli_query($conn, $queryInFav);
+        }else{
+            $queryInFav = "INSERT INTO favoritos VALUES (null, $id, 1)";
+            $resultInFav = mysqli_query($conn, $queryInFav);
+        }
+        $arrayFav = Array();
+        $resultFav = mysqli_query($conn, $queryFav); 
+        while($rowFav = mysqli_fetch_array($resultFav)){
+            $arrayFav[] = $rowFav['idInmueble'];
+        }
+    }
     if(!$result_search){
         echo 'query failed';
     }
@@ -19,9 +39,15 @@
         echo 'No se encontraron datos';
     }else{
         while($row = mysqli_fetch_array($result_search)){
+            //comprobar con un if si esta en la tabla de favoritos e imprimir un color o el otro del botón
+            $colorBoton = 'light';
+            if(in_array($row['idInmueble'], $arrayFav)){
+                $colorBoton = 'danger';
+            }
+
             echo "<div class='col mb-3'>
             <div class='card'>
-            <a href = 'InmuebleFavorito.php?id=".$row['idInmueble']."' class='badge badge-pill badge-light favorito'><i class='fas fa-heart'></i></a>
+            <button type='button' class='badge badge-pill badge-".$colorBoton." favorito' onclick='favoritos(".$row['idInmueble'].")'><i class='fas fa-heart'></i></button>
              <img src='data:image/jpg;base64, ".base64_encode($row['fotos'])."' height='200' class='card-img-top'>
              <div class='card-body'>
                     <h5 class='card-title'>".$row['Titulo']. "</h5>
@@ -34,39 +60,4 @@
     }
     }
     mysqli_close($conn);
-
-
-//Usar AJAX para insertar los datos en favoritos y cambiar el color el botón 
-//Debemos enviar el idInmueble a otro archivo a través de AJAX y conseguir el id de la sesión actual
-//Una vez hecha la función cambiar de color el botón 
-
-
-    //$_SESSION['resultado'] = $querysearch;
-    //header("Location: index.php");
-/*    
-    <script type="text/javascript">
-        $('#boton').click(function(){
-            var esperar = 500;
-            $.ajax({
-                url: "prueba.html",
-                beforeSend : function(){
-                    $('#contenido').text('Cargando...');
-                },
-                success : function(data){
-                    setTimeout(function(){
-                        $('#contenido').html(data);
-                    },esperar
-                    );
-                }
-            });
-        });
-    </script>
-*/
-
 ?>
-<script>
-console.log('fav');
-$('#fav').click(function(){
-    console.log('fav'); 
-});
-</script>
