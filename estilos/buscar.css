@@ -20,7 +20,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     color: white;
-    margin-bottom: 17px;
+    margin-bottom: 180px;
 }
 .texto{
     font-weight: 400;
@@ -32,18 +32,21 @@
 
 @media (min-width: 768px) {
     .favorito{
-        margin: 20px 0 -20px 110px;
+        margin: 20px 0 -20px 170px;
     }
     .botonesPrincipales{
         width: 60px;
         margin: 0;
         font-size: 14px;
     }
+    .imagenFondo{
+        margin-bottom: 17px;
+    }
 }
 
 @media (min-width: 992px) {
     .favorito{
-        margin: 20px 0 -20px 160px;
+        margin: 20px 0 -20px 240px;
     }
     .botonesPrincipales{
         width: 70px;
@@ -54,7 +57,7 @@
 
 @media (min-width: 1200px) {
     .favorito{
-        margin: 20px 0 -20px 200px;
+        margin: 20px 0 -20px 290px;
     }
     .botonesPrincipales{
         width: 70px;
