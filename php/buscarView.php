@@ -22,7 +22,7 @@
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4 textoPrincipal">Buscar Inmuebles</h1>
             <div class="container">
-            <p class="texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum aliquid illum ipsa, <br> aspernatur praesentium quibusdam id, sed excepturi exercitationem</p>
+            <p class="texto">En Trobify puedes encontrar gran variedad de casas y departamentos<br> que se ajustan a tus necesidades alrededor de todo México. <br>¡Comienza ahora tu experiencia en el mundo de Trobify!</p>
             </div>
         </div>
          <!--FILTROS DE BUSQUEDA-->
@@ -100,7 +100,7 @@
    
         <br>
         <!--CARDS INMUEBLES-->
-        <div class="row row-cols-1 row-cols-md-4" id="contenido"></div>
+        <div class="row row-cols-1 row-cols-md-3" id="contenido"></div>
     </div>
 
 
