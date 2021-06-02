@@ -2,6 +2,10 @@ table{
   display: block;
   overflow-x: auto;
   margin: auto;
+  border-radius: 24px;
+ -webkit-box-shadow: -2px 2px 13px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -2px 2px 13px 0px rgba(0,0,0,0.75);
+box-shadow: -2px 2px 13px 0px rgba(0,0,0,0.75);
 }
 
 #divu
@@ -53,11 +57,7 @@ body{
   font-family: 'Poppins', sans-serif;
   background-size: cover;
   height: 100vh;
-  background: rgb(80,142,172);
-  background: linear-gradient(90deg,
-     rgba(80,142,172,1) 15%,
-      rgba(112,56,84,1) 50%,
-       rgba(80,142,172,1) 85%);
+  background: #f7ffff;
 }
 
 .miMensaje{
@@ -81,8 +81,7 @@ body{
 input[type="text"]{
   width:128%;
   border-radius:7px;
-  font-size:bold;
-  font-size: 19px;
+  border: 2.5px solid #a0a0a0;
 
 }
 
@@ -91,7 +90,9 @@ input[type="submit"]{
   background-color:#8eeae2;
   border-radius: 7px;
   font-size:bold;
+  font: #FFF;
   font-size: 19px;
+  border: 2.5px solid #a0a0a0;
 }
 
 .conversaciones{
@@ -138,7 +139,7 @@ h6{
 .inmueble{
   position: fixed;
   top:2px;
-  left: 50.4%;
+  left: 52%;
   width:420px;
 }
 
