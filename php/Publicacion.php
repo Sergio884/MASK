@@ -27,10 +27,34 @@
     $Visitas = $Visitas + 1;
   }
 
-  /*Información del vendedor*/
+  /*Conteo de Visitas*/
   $sql = "UPDATE Inmueble SET Visitas = ".$Visitas." WHERE IdInmueble = ".$idInmueble."";
   if(mysqli_query($conn, $sql)){
   }
+  /*Historial de visitas*/
+  session_start();
+  if(isset($_SESSION['usuario'])){
+    $miUsuario = $_SESSION['usuario'];
+    $sql = "SELECT * FROM Usuario WHERE Usuario='".$miUsuario."' OR Correo='".$miUsuario."';";
+    $result = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result) > 0){
+      $row = mysqli_fetch_assoc($result);
+      $miIdUsuario = $row['IdUsuario'];
+      $sql = "SELECT * FROM Historial WHERE IdUsuario = '".$miIdUsuario."' AND IdInmueble = '".$idInmueble."';";
+      $result = mysqli_query($conn, $sql);
+      if(mysqli_num_rows($result) > 0){
+        $sql = "UPDATE Historial SET Fecha ='".date("y-m-d")."' WHERE IdUsuario = '".$miIdUsuario."' AND IdInmueble = '".$idInmueble."';";
+        if(mysqli_query($conn,$sql)){
+        }
+      }
+      else{
+        $sql = "INSERT INTO Historial(IdUsuario, IdInmueble, Fecha) VALUES('".$miIdUsuario."','".$idInmueble."','".date("y-m-d")."');";
+        if(mysqli_query($conn,$sql)){
+        }
+      }
+    }
+  }
+  /*Información del vendedor*/
   $sql = "SELECT * FROM Usuario WHERE IdUsuario = ".$IdUsuario."";
   $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){
