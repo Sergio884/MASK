@@ -19,6 +19,7 @@ function buscar(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -33,6 +34,7 @@ function favoritos(){
   document.getElementById("favoritos").classList.add('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -47,6 +49,7 @@ function mensajes(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.add('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -61,6 +64,22 @@ function notificaciones(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.add('active');
+  document.getElementById("historial").classList.remove('active');
+  document.getElementById("venta").classList.remove('active');
+  document.getElementById("publicaciones").classList.remove('active');
+  document.getElementById("visitas").classList.remove('active');
+  document.getElementById("usuario").classList.remove('active');
+  document.getElementById("configuracion").classList.remove('active');
+  document.getElementById("problema").classList.remove('active');
+  document.getElementById("informacion").classList.remove('active');
+}
+
+function miHistorial(){
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"./historial.html\"></iframe>";
+  document.getElementById("favoritos").classList.remove('active');
+  document.getElementById("mensajes").classList.remove('active');
+  document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.add('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -75,6 +94,7 @@ function venta(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.add('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -89,6 +109,7 @@ function publicaciones(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.add('active');
   document.getElementById("visitas").classList.remove('active');
@@ -103,6 +124,7 @@ function visitas(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.add('active');
@@ -117,6 +139,7 @@ function usuario(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -131,6 +154,7 @@ function configuracion(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -145,6 +169,7 @@ function problema(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
@@ -159,6 +184,7 @@ function informacion(){
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
+  document.getElementById("historial").classList.remove('active');
   document.getElementById("venta").classList.remove('active');
   document.getElementById("publicaciones").classList.remove('active');
   document.getElementById("visitas").classList.remove('active');
