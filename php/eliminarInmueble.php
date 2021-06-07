@@ -5,9 +5,15 @@
   if(mysqli_query($conn, $sql)){
     $sql = "DELETE FROM Visitas WHERE Inmueble='".$IdInmueble."';";
     if(mysqli_query($conn, $sql)){
-      $sql = "DELETE FROM Inmueble WHERE IdInmueble='".$IdInmueble."';";
+      $sql = "DELETE FROM Historial WHERE IdInmueble='".$IdInmueble."';";
       if(mysqli_query($conn, $sql)){
-        echo "Información eliminada correctamente";
+        $sql = "DELETE FROM Inmueble WHERE IdInmueble='".$IdInmueble."';";
+        if(mysqli_query($conn, $sql)){
+          echo "Información eliminada correctamente";
+        }
+        else{
+          echo "Error al eliminar la información";
+        }
       }
       else{
         echo "Error al eliminar la información";
