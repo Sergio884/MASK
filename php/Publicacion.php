@@ -242,6 +242,9 @@
             <button type="button" class="w-100 btn btn-lg btn-light">Guardar a favoritos</button>
             <p></p>
             <p></p>
+            <?php echo "<a href=\"./SimuladorHipotecas.php?IdInmueble=".$idInmueble."\""; ?><button type="button" class="w-100 btn btn-lg btn-light">Simular hipoteca</button></a>
+            <p></p>
+            <p></p>
           </center>
         </div>
       </div>
