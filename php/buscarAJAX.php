@@ -1,6 +1,20 @@
 <?php
     include("db.php");
     
+    //USUARIO LOGGEADO
+    $usuario = $_SESSION['usuario'];
+    $queryUsu = "SELECT * FROM usuario WHERE Usuario = '$usuario'";
+    $resultUsu = mysqli_query($conn, $queryUsu);
+    if(!$resultUsu){
+        echo 'query failed';
+    }else{
+    if(mysqli_num_rows($resultUsu) > 0){
+        $rowUsu = mysqli_fetch_assoc($resultUsu);
+        $idUsu = $rowUsu['idUsuario'];
+    }
+    }
+
+
     $estado = $_POST['estado'];
     $tipo = $_POST['tipo'];
     $dorm = $_POST['dormitorios'];
@@ -8,7 +22,7 @@
     //QUERY BUSQUEDA
     $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND VentaRenta like '$venta'";    
     //QUERY FAVORITOS
-    $queryFav = "SELECT * FROM favoritos";
+    $queryFav = "SELECT * FROM favoritos WHERE idUsuario = $idUsu";
     $resultFav = mysqli_query($conn, $queryFav); 
     $result_search = mysqli_query($conn, $querysearch);
 
@@ -20,10 +34,10 @@
     if(isset($_POST['indice'])){
         $id = $_POST['indice'];
         if(in_array($id, $arrayFav)){
-            $queryInFav ="DELETE FROM favoritos WHERE idInmueble = $id";
+            $queryInFav ="DELETE FROM favoritos WHERE idInmueble = $id AND idUsuario = $idUsu";
             $resultInFav = mysqli_query($conn, $queryInFav);
         }else{
-            $queryInFav = "INSERT INTO favoritos VALUES (null, $id, 1)";
+            $queryInFav = "INSERT INTO favoritos VALUES (null, $id, $idUsu)";
             $resultInFav = mysqli_query($conn, $queryInFav);
         }
         $arrayFav = Array();

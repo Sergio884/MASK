@@ -30,7 +30,7 @@ function buscar(){
 }
 
 function favoritos(){
-  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://ubuntu.com/\"></iframe>";
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/favoritos.php\"></iframe>";
   document.getElementById("favoritos").classList.add('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');
