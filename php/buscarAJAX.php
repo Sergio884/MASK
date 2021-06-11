@@ -10,7 +10,7 @@
     }else{
     if(mysqli_num_rows($resultUsu) > 0){
         $rowUsu = mysqli_fetch_assoc($resultUsu);
-        $idUsu = $rowUsu['idUsuario'];
+        $idUsu = $rowUsu['IdUsuario'];
     }
     }
 
