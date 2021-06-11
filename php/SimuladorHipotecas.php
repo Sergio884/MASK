@@ -1,6 +1,6 @@
 <?php
   $idInmueble = $_GET['IdInmueble'];
-  include('dbconnection.php');
+  include('../db/dbconnection.php');
 
   $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
   $result = mysqli_query($conn, $sql);

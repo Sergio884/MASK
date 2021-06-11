@@ -1,5 +1,5 @@
 <?php
-    include("db.php");
+    include("../db/db.php");
     
     //USUARIO LOGGEADO
     $usuario = $_SESSION['usuario'];

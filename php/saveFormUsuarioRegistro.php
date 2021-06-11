@@ -11,7 +11,7 @@
      $nacimiento=$_POST['nacimiento'];
      $imagen=addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
 
-     include("db.php"); 
+     include("../db/db.php"); 
      $query = "SELECT * FROM usuario WHERE Usuario='$usuario' or Correo='$correo'";
      $run = mysqli_query($conn,$query);
      $existe = mysqli_num_rows($run);

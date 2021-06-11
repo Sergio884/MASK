@@ -1,5 +1,5 @@
     <?php
-    include('dbconnection.php');
+    include('../db/dbconnection.php');
     $usuario = $_GET['Usuario'];
     $password =  $_GET['Password'];
     $query = "SELECT * FROM usuario
@@ -11,7 +11,7 @@
     if ($existe>0) {
       session_start();
       $_SESSION['usuario']=$usuario;
-      include('dbconnectionChat.php');
+      include('../db/dbconnectionChat.php');
       $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
       chat VARCHAR(106),
       ultimoMensaje VARCHAR(999),
@@ -22,7 +22,7 @@
       mysqli_close($connection);
       header('Location: ../html/menu.html');
     }else {
-      include('dbconnection.php');
+      include('../db/dbconnection.php');
       $query = "SELECT * FROM usuario
       WHERE (Usuario='$usuario') OR (Correo='$usuario')";
       $run = mysqli_query($conn,$query);
