@@ -34,7 +34,7 @@ $idInmueble = $_GET['idInmueble'];
 
 
 function buscarInsulto($palabra){
-    $palabra = strtolower($palabra);
+    $palabra = mb_strtolower($palabra, 'UTF-8');
     $palabraSola = "";
     $signo = "";
     for($i=0;$i<strlen($palabra);$i++){
