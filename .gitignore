@@ -1,2 +1,4 @@
 sql/mask.sql
-sql/
+php/db.php
+php/dbconnectionChat.php
+php/dbconnection.php
