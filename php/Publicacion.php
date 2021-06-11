@@ -237,7 +237,7 @@
             <p><?php echo $Calificacion; ?></p>
             <p><h4><?php echo $Correo; ?></h4></p>
             <p><h4><?php echo $Telefono; ?></h4></p>
-            <?php echo "<a href=\"./enviarMensaje.php?receptor=".$Usuario."&IdInmueble=".$idInmueble."\">"; ?><button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button></a>
+            <?php echo "<a href=\"./enviarMensaje.php?receptor=".$Usuario."&idInmueble=".$idInmueble."\">"; ?><button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button></a>
             <p></p>
             <button type="button" class="w-100 btn btn-lg btn-light">Guardar a favoritos</button>
             <p></p>

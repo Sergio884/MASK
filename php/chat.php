@@ -82,7 +82,7 @@
 
         
         include('dbconnectionChat.php');
-        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Evité lenguaje en incite el odio',current_timestamp())";
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Evité lenguaje que incite el odio',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection); 
 
@@ -94,7 +94,7 @@
 
 
         include('dbconnectionChat.php');
-        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Hola $usuario yo soy $receptor',current_timestamp())";
+        $query = "INSERT INTO $chatUsuario(emisor,mensaje,tiempo) VALUES('$receptor','Hola $usuario, yo soy $receptor',current_timestamp())";
         $run = mysqli_query($connection,$query);
         mysqli_close($connection);
 

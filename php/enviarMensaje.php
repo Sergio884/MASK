@@ -39,7 +39,7 @@ function buscarInsulto($palabra){
     $signo = "";
     for($i=0;$i<strlen($palabra);$i++){
         $c = $palabra[$i];
-        if($c=="?" || $c=="," || $c=="." || $c=="!"){
+        if($c=="?" || $c=="," || $c=="." || $c=="!" || $c=="-" || $c=="_" || $c=="*"){
             $signo = $signo.$c;
         }else{
             $palabraSola = $palabraSola.$c;            
@@ -96,6 +96,18 @@ function buscarInsulto($palabra){
         case "t0nt0";
         case "t0nto";
         case "tont0";
+        case "tontisímo";
+        case "tontisimo";
+        case "tonticímo";
+        case "tonticimo";
+        case "tontisím0";
+        case "t0ntisímo";
+        case "t0ntisím0";
+        case "tontisim0";
+        case "t0ntisim0";
+        case "t0nticim0";
+        case "t0nticimo";
+        case "tonticim0";
         case "huérfano";
         case "huérfana";
         case "huerfano";
