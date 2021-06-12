@@ -165,7 +165,7 @@ function configuracion(){
 }
 
 function problema(){
-  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://telegram.org/\"></iframe>";
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/reporteProblema.php?receptor=\"></iframe>";
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');

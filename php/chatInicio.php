@@ -5,7 +5,7 @@ if(!isset($_SESSION['usuario'])){
 }
 $usuario = $_SESSION['usuario'];
 
-include('dbconnectionChat.php');
+include('../db/dbconnectionChat.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),
     ultimoMensaje VARCHAR(999),
@@ -15,13 +15,13 @@ include('dbconnectionChat.php');
     $run = mysqli_query($connection,$query);
     mysqli_close($connection);
 
-include('dbconnectionChat.php');
+include('../db/dbconnectionChat.php');
 $query = "SELECT * FROM chats".$usuario."";
 $run = mysqli_query($connection,$query);
 $existe = mysqli_num_rows($run);
 mysqli_close($connection);
 if ($existe>0) {
-    include('dbconnectionChat.php');
+    include('../db/dbconnectionChat.php');
     $ordenar = "SELECT * FROM chats".$usuario."
                 ORDER BY tiempo ASC";
     $run = mysqli_query($connection,$ordenar);
