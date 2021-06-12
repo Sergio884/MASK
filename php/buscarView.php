@@ -1,4 +1,4 @@
-<?php
+<?php 
     include("../db/db.php");
 ?>
 <!DOCTYPE html>
@@ -67,18 +67,30 @@
                     <div class="col-md-3">
                         <select name="tipo" id="tipo" class="form-control">
                             <option value="%%">Tipo...</option>
+                            <option value="1">Casa</option>
+                            <option value="2">Departamento</option>
                         </select>
                     </div>
                     <div class="col-md-2">
                         <select name="dormitorios" id="dormitorios" class="form-control">
                             <option value="%%">Dormitorios...</option>
                             <option value="2">2</option>
+                            <option value="2">3</option>
+                            <option value="2">4</option>
+                            <option value="2">5</option>
                             <option value="6">6</option>
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <select name="venta" id="venta" class="form-control">
-                            <option value="%%">Venta...</option>
+                        <select name="precio" id="precio" class="form-control">
+                            <option value="999999999">Precio máximo...</option>
+                            <option value="500000">$500,000</option>
+                            <option value="1000000">$1,000,000</option>
+                            <option value="2500000">$2,500,000</option>
+                            <option value="5000000">$5,000,000</option>
+                            <option value="10000000">$10,000,000</option>
+                            <option value="15000000">$15,000,000</option>
+                            <option value="25000000">$25,000,000</option>
                         </select>
                     </div>
                     <div class="col-md-1">
@@ -111,7 +123,7 @@
         document.getElementById('estado').value = '%%';
         document.getElementById('tipo').value = '%%';
         document.getElementById('dormitorios').value = '%%';
-        document.getElementById('venta').value = '%%';
+        document.getElementById('precio').value = '999999999';
         $('#contenido').html(data);
     });
 
@@ -120,9 +132,9 @@
         var estado = document.getElementById('estado').value;
         var tipo = document.getElementById('tipo').value;
         var dormitorios = document.getElementById('dormitorios').value;
-        var venta = document.getElementById('venta').value;
+        var precio = document.getElementById('precio').value;
 
-        var ruta = "estado="+estado+"&tipo="+tipo+"&dormitorios="+dormitorios+"&venta="+venta;
+        var ruta = "estado="+estado+"&tipo="+tipo+"&dormitorios="+dormitorios+"&precio="+precio;
             $.ajax({
                 url: "buscarAJAX.php",
                 type: 'POST',
@@ -142,9 +154,9 @@
         var estado = document.getElementById('estado').value;
         var tipo = document.getElementById('tipo').value;
         var dormitorios = document.getElementById('dormitorios').value;
-        var venta = document.getElementById('venta').value;
+        var precio = document.getElementById('precio').value;
 
-        var ruta = "estado="+estado+"&tipo="+tipo+"&dormitorios="+dormitorios+"&venta="+venta+"&indice="+indice;
+        var ruta = "estado="+estado+"&tipo="+tipo+"&dormitorios="+dormitorios+"&precio="+precio+"&indice="+indice;
         
             $.ajax({
                 url: "buscarAJAX.php",

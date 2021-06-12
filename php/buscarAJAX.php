@@ -1,6 +1,8 @@
 <?php
     include("../db/db.php");
-    
+                        //0       1      2
+    $arrayTipos = array("Casa", "Casa", "Departamento");
+
     //USUARIO LOGGEADO
     $usuario = $_SESSION['usuario'];
     $queryUsu = "SELECT * FROM usuario WHERE Usuario = '$usuario'";
@@ -18,9 +20,9 @@
     $estado = $_POST['estado'];
     $tipo = $_POST['tipo'];
     $dorm = $_POST['dormitorios'];
-    $venta = $_POST['venta'];
+    $precio = $_POST['precio'];
     //QUERY BUSQUEDA
-    $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND VentaRenta like '$venta'";    
+    $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, TipoInmueble, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND costo <= '$precio'";    
     //QUERY FAVORITOS
     $queryFav = "SELECT * FROM favoritos WHERE idUsuario = $idUsu";
     $resultFav = mysqli_query($conn, $queryFav); 
@@ -64,7 +66,7 @@
             <button type='button' class='badge badge-pill badge-".$colorBoton." favorito' onclick='favoritos(".$row['idInmueble'].")'><i class='fas fa-heart'></i></button>
              <img src='data:image/jpg;base64, ".base64_encode($row['fotos'])."' height='200' class='card-img-top'>
              <div class='card-body'>
-                    <h5 class='card-title'>".$row['Titulo']. "</h5>
+                    <h5 class='card-title'>". $arrayTipos[$row['TipoInmueble']] ."</h5>
                     <h6>Estado: " .$row['Estado']. "</h6>
                     <p><span class='badge badge-pill badge-secondary'>$". number_format($row['Costo']) ." MXN</span></p>
                     <a href='Publicacion.php?IdInmueble=".$row['idInmueble']."' class='btn btn-primary'>Ver inmueble</a>

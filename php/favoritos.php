@@ -1,7 +1,8 @@
 <?php
-    include("db.php");
+     include("../db/db.php");   
+
     if(!isset($_SESSION['usuario'])){
-        header("location: ../html/Login.html");
+       echo 'Usuario no encontrado';
     }
     $usuario = $_SESSION['usuario'];
     $queryUsu = "SELECT * FROM usuario WHERE Usuario = '$usuario'";
@@ -11,7 +12,7 @@
     }else{
     if(mysqli_num_rows($resultUsu) > 0){
         $rowUsu = mysqli_fetch_assoc($resultUsu);
-        $idUsu = $rowUsu['idUsuario'];
+        $idUsu = $rowUsu['IdUsuario'];
     }
     }
 ?>
@@ -37,7 +38,7 @@
     <h1>Favoritos</h1>
     <!--CARDS INMUEBLES-->
     <?php 
-        $query = "SELECT inmueble.idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble, favoritos WHERE Estado like '%%' AND TipoInmueble like '%%' AND NumeroDormitorios like '%%' AND VentaRenta like '%%' AND inmueble.idInmueble = favoritos.idInmueble AND favoritos.idUsuario = $idUsu";    
+        $query = "SELECT inmueble.idInmueble, Titulo, Estado, Costo, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble, favoritos WHERE Estado like '%%' AND TipoInmueble like '%%' AND NumeroDormitorios like '%%' AND VentaRenta like '%%' AND inmueble.idInmueble = favoritos.idInmueble AND favoritos.IdUsuario = $idUsu";    
         $result = mysqli_query($conn, $query);
         if(!$result){
             echo 'query failed';
