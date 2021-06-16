@@ -129,6 +129,11 @@
         color: #FFFFFF;
       }
 
+    #map{
+      height: 500px;
+      width: 98%;
+    }
+
     </style>
     <link href="../estilos/carousel.css" rel="stylesheet">
 
@@ -249,6 +254,29 @@
         </div>
       </div>
     </header>
+
+    <!--MAPA-->
+    <br>
+    <center>
+    <div id="map"></div>
+    </center>
+    <script>
+        function iniciarMap(){
+        var coord = {lat:<?= $Longitud ?> ,lng: <?= $Latitud ?>};
+        var map = new google.maps.Map(document.getElementById('map'),{
+            zoom: 10,
+            center: coord
+        });
+        var marker = new google.maps.Marker({
+            position: coord,
+            map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMYIaquzXvBkCejCll1ZxSgCmWbjiRO5g&callback=iniciarMap"></script>
+    <!--MAPA-->
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
