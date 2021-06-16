@@ -80,7 +80,7 @@
   </head>
   <body>
     <main>
-	
+
 		<div class="container">
 			<div class="row mb-3 form-group">
 				<div class="col-md-2">
@@ -96,7 +96,7 @@
 							</div>
 							<div class="row mb-3 form-group">
 								<div class="col-12">
-									<input type="text" readonly class="form-control" id="costo" value="<?php echo($Costo); ?>">
+									<input type="text" readonly class="form-control" id="costo" value="$<?php echo($Costo); ?> MX">
 								</div>
 							</div>
 							<div class="row form-group">
@@ -137,7 +137,7 @@
 							</div>
 							<div class="row mb-3 form-group">
 								<div class="col-12">
-									<button class="w-100 btn btn-lg btn-light" onclick="calcularHipoteca(costo.value)">Calcular</button>
+									<button class="w-100 btn btn-lg btn-light" onclick="calcularHipoteca(<?php echo($Costo); ?>)">Calcular</button>
 								</div>
 							</div>
 						</div>
