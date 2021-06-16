@@ -95,10 +95,10 @@
                         </select>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="btn btn-primary botonesPrincipales" id="boton">Buscar</button>
+                        <button type="button" class="btn botonesPrincipales" id="boton" style="background-color: rgb(1,122,128); color: #ffffff">Buscar</button>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="btn btn-danger botonesPrincipales" id="clear">Limpiar</button>
+                        <button type="button" class="btn botonesPrincipales" id="clear" style="background-color: #00c0c7; color: #ffffff">Limpiar</button>
                     </div>
                 </div>
     </div>

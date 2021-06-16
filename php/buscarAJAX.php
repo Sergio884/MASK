@@ -69,7 +69,7 @@
                     <h5 class='card-title'>". $row['Titulo'] ."</h5>
                     <h6>Estado: " .$row['Estado']. "</h6>
                     <p><span class='badge badge-pill badge-secondary'>$". number_format($row['Costo']) ." MXN</span></p>
-                    <a href='Publicacion.php?IdInmueble=".$row['IdInmueble']."' class='btn btn-primary'>Ver inmueble</a>
+                    <a href='Publicacion.php?IdInmueble=".$row['IdInmueble']."' class='btn' style='background-color: #00c0c7; color: #ffffff'>Ver inmueble</a>
                 </div>
             </div>
         </div>";
