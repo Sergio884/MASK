@@ -67,8 +67,10 @@
                     <div class="col-md-3">
                         <select name="tipo" id="tipo" class="form-control">
                             <option value="%%">Tipo...</option>
-                            <option value="0">Casa</option>
-                            <option value="2">Departamento</option>
+                            <option value="1">Propiedad entera</option>
+                            <option value="2">Propiedad compartida</option>
+                            <option value="3">Departamento entero</option>
+                            <option value="4">Departamento compartido</option>
                         </select>
                     </div>
                     <div class="col-md-2">

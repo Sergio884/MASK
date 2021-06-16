@@ -196,12 +196,12 @@
           <h3><?php echo $Direccion; ?>. C.P.: <?php echo $CP; ?></h3>
           <div class="form-group row">
             <div class="col-sm-12">
-              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php if($VentaRenta == 1){echo "Venta";}else{echo "Renta";} ?>">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php if($VentaRenta == 0){echo "Venta";}else{echo "Renta";} ?>">
             </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-12">
-              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php if($TipoInmueble == 1){echo "Casa";}else{echo "Departamento";} ?>">
+              <input type="text" readonly class="form-control-plaintext form-control-lg" value="<?php if($TipoInmueble == 1){echo "Propiedad Entera";} if($TipoInmueble == 2){echo "Propiedad Compartida";} if($TipoInmueble == 3){echo "Departamento Entero";} if($TipoInmueble == 4){echo "Departamento Compartido";} ?>">
             </div>
           </div>
           <div class="form-group row">
