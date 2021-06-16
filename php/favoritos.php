@@ -58,8 +58,8 @@
                     <h5 class='card-title'><?=$row['Titulo'] ?></h5>
                     <h6>Estado: <?=$row['Estado'] ?></h6>
                     <p><span class='badge badge-pill badge-secondary'>$ <?= number_format($row['Costo'])?> MXN</span></p>
-                    <a href='Publicacion.php?IdInmueble=<?=$row['idInmueble'] ?>' class='btn btn-primary'>Ver inmueble</a>
-                    <a href='favoritosDelete.php?id=<?=$row['idInmueble'] ?>&idUsu=<?=$idUsu?>' class='btn btn-danger'>Eliminar de favoritos</a>
+                    <a href='Publicacion.php?IdInmueble=<?=$row['idInmueble'] ?>' class='btn' style="background-color: #00c0c7; color: #ffffff">Ver inmueble</a>
+                    <a href='favoritosDelete.php?id=<?=$row['idInmueble'] ?>&idUsu=<?=$idUsu?>' class='btn' style="background-color: rgb(1,122,128); color: #ffffff">Eliminar de favoritos</a>
                 </div>
             </div>
         </div>
