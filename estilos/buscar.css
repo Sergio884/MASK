@@ -5,6 +5,7 @@
 }
 
 .botonesPrincipales{
+    border: 0px;
     width: 100%;
     margin: 15px 0 0 0;
     border-color: unset;
@@ -35,6 +36,7 @@
         margin: 20px 0 -20px 170px;
     }
     .botonesPrincipales{
+        border: 0px;
         width: 60px;
         margin: 0;
         font-size: 14px;
@@ -49,6 +51,7 @@
         margin: 20px 0 -20px 240px;
     }
     .botonesPrincipales{
+        border: 0px;
         width: 70px;
         margin: 0;
         font-size: 15px;
@@ -60,8 +63,15 @@
         margin: 20px 0 -20px 290px;
     }
     .botonesPrincipales{
+        border: 0px;
         width: 70px;
         margin: 0;
         font-size: 15px;
     }   
 }
+
+.botonesPrincipales:hover {
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 2px 6px rgba(49, 138, 172, 1);
+    transition: all 0.2s ease;
+  }
