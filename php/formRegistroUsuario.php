@@ -16,6 +16,7 @@ include('../db/dbconnection.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/forms.css">
     <link rel="stylesheet" href="../estilos/gridUsuario.css">
+    <link rel="icon" href="../imagenes/logoT.ico">
     <!--<script src="JS/Validacion.js"></script>-->
     <title>Document</title>
 </head>
