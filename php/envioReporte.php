@@ -221,23 +221,23 @@ if(strlen($mensaje)>12){
 }
 
 include('../db/dbconnectionChat.php');
-$query = "INSERT INTO chat".$usuario."_".$receptor."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
+$query = "INSERT INTO reporte".$usuario."_".$receptor."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 include('../db/dbconnectionChat.php');
-$query = "INSERT INTO chat".$receptor."_".$usuario."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
+$query = "INSERT INTO reporte".$receptor."_".$usuario."(emisor,mensaje,tiempo) VALUES('$usuario','$mensaje',current_timestamp())";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 include('../db/dbconnectionChat.php');
-$query = "UPDATE chats".$usuario." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$receptor'";
+$query = "UPDATE reportes".$usuario." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$receptor'";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 
 
 include('../db/dbconnectionChat.php');
-$sql = "SELECT usuario FROM chats".$receptor."
+$sql = "SELECT usuario FROM reportes".$receptor."
         WHERE usuario='".$usuario."'";
 $buscar = mysqli_query($connection,$sql);
 $existe = mysqli_num_rows($buscar);
@@ -245,12 +245,12 @@ mysqli_close($connection);
 if ($existe==0) {
     $chatUsuario = "chat".$usuario."_".$receptor;
     include('../db/dbconnectionChat.php');
-    $insertar = "INSERT INTO chats".$receptor."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$usuario','$idInmueble')";
+    $insertar = "INSERT INTO reportes".$receptor."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$usuario','$idInmueble')";
     mysqli_query($connection,$insertar);
     mysqli_close($connection); 
 }
 include('../db/dbconnectionChat.php');
-$query = "UPDATE chats".$receptor." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$usuario'";
+$query = "UPDATE reportes".$receptor." SET ultimoMensaje='$ultimoMensaje',tiempo=current_timestamp() WHERE usuario='$usuario'";
 $run = mysqli_query($connection,$query);
 mysqli_close($connection);
 

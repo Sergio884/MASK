@@ -18,6 +18,7 @@
     $usuario = $_SESSION['usuario'];
     $receptor = $_GET['receptor'];
     $idInmueble = $_GET['idInmueble'];
+    
     include('../db/dbconnectionChat.php');
     $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     chat VARCHAR(106),

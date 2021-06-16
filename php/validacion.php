@@ -19,7 +19,15 @@
       usuario VARCHAR(50),
       idInmueble INT)";
       $run = mysqli_query($connection,$query);
+
+      $query = "CREATE TABLE IF NOT EXISTS reportes".$usuario."(idReporte INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+      reporte VARCHAR(106),
+      ultimoMensaje VARCHAR(999),
+      tiempo TIMESTAMP,
+      usuario VARCHAR(50))";
+      $run = mysqli_query($connection,$query);
       mysqli_close($connection);
+
       header('Location: ../html/menu.html');
     }else {
       include('../db/dbconnection.php');

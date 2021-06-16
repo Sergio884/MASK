@@ -18,12 +18,11 @@
     $usuario = $_SESSION['usuario'];
     $receptor = "Trobify";
     include('../db/dbconnectionChat.php');
-    $query = "CREATE TABLE IF NOT EXISTS chats".$usuario."(idChat INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    chat VARCHAR(106),
+    $query = "CREATE TABLE IF NOT EXISTS reportes".$usuario."(idReporte INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    reporte VARCHAR(106),
     ultimoMensaje VARCHAR(999),
     tiempo TIMESTAMP,
-    usuario VARCHAR(50),
-    idInmueble INT)";
+    usuario VARCHAR(50)";
     $run = mysqli_query($connection,$query);
     mysqli_close($connection);
   ?>
@@ -31,18 +30,18 @@
     <tbody>
     <?php
       include('../db/dbconnectionChat.php');
-      $sql = "SELECT chat FROM chats".$usuario."
+      $sql = "SELECT reporte FROM reportes".$usuario."
                       WHERE usuario='".$receptor."'";
       $buscar = mysqli_query($connection,$sql);
       $existe = mysqli_num_rows($buscar);
       mysqli_close($connection);
       if ($existe>0) {
         $chat = mysqli_fetch_assoc($buscar);
-        $chatUsuario = $chat['chat'];
+        $chatUsuario = $chat['reporte'];
       }else {
-        $chatUsuario = "chat".$usuario."_".$receptor;
+        $chatUsuario = "reporte".$usuario."_".$receptor;
         include('../db/dbconnectionChat.php');
-        $insertar = "INSERT INTO chats".$usuario."(chat,ultimoMensaje,tiempo,usuario,idInmueble) VALUES('$chatUsuario',' ',current_timestamp(),'$receptor','1')";
+        $insertar = "INSERT INTO reportes".$usuario."(reporte,ultimoMensaje,tiempo,usuario) VALUES('$chatUsuario',' ',current_timestamp(),'$receptor')";
         mysqli_query($connection,$insertar);
         mysqli_close($connection); 
         include('../db/dbconnectionChat.php');
@@ -101,28 +100,41 @@
 
       $run = mysqli_query($connection,$ordenar);
       while($resultado = mysqli_fetch_assoc($run)){
+        $tiempo = cortarTiempo($resultado['tiempo']);
         if($resultado['emisor']==$usuario){ ?>
-          <tr>
-            <td colspan="3"><td>
-            <td colspan="3" class="miHora"><?php echo $resultado['tiempo']; ?></td>
-          </tr>
           <tr>
             <td colspan="3"></td>
             <td colspan="3" class="miMensaje"><?php echo $resultado['mensaje']; ?></td>
+          </tr>
+          <tr>
+            <td colspan="3"><td>
+            <td colspan="3" class="miHora"><?php echo $tiempo; ?></td>
           </tr>
           <?php
         }else{ ?>
       <tr>
           <tr>
-            <td colspan="3"><?php echo $resultado['tiempo']; ?></td>
+            <td  colspan="3" class="suMensaje"><?php echo $resultado['mensaje']; ?></td>
+            <td colspan="3"></td>
+          </tr>
+          <tr>
+            <td colspan="3" class="suHora"><?php echo $tiempo ?></td>
             <td colspan="3"><td>
           </tr>
-        <td  colspan="3" class="suMensaje"><?php echo $resultado['mensaje']; ?></td>
-        <td colspan="3"></td>
       </tr>
         <?php }
      } 
      mysqli_close($connection);?>
+
+      <?php
+        function cortarTiempo($tiempoCompleto){
+          $hora = "";
+          for($i=10;$i<strlen($tiempoCompleto)-3;$i++){
+              $hora = $hora.$tiempoCompleto[$i];
+          }
+          return $hora;
+        }
+      ?>
     </tbody>
   </table>
 
@@ -152,7 +164,7 @@
           <h6 class="nombre">Trobify</h6>
           <?php
           include('../db/dbconnectionChat.php');
-          $ordenar = "SELECT tiempo FROM chats".$usuario."
+          $ordenar = "SELECT tiempo FROM reportes".$usuario."
                       WHERE usuario='".$receptor."'";
           $buscar = mysqli_query($connection,$ordenar);
           $datoReceptor = mysqli_fetch_assoc($buscar);
@@ -162,7 +174,7 @@
 
           <?php
           include('../db/dbconnectionChat.php');
-          $ordenar = "SELECT ultimoMensaje FROM chats".$usuario."
+          $ordenar = "SELECT ultimoMensaje FROM reportes".$usuario."
                       WHERE usuario='".$receptor."'";
           $buscar = mysqli_query($connection,$ordenar);
           $datoReceptor = mysqli_fetch_assoc($buscar);
