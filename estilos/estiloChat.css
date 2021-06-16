@@ -149,12 +149,12 @@ h6{
 .inmueble{
   position: fixed;
   top:2px;
-  left: 52%;
-  width:420px;
+  right: 11%;
+  width:96px;
+  text-align:justify;
 }
 
-.contenedorInmueble{
-  margin-left:77%;
+.contenedorInmueble{  
   border-radius:8px;
 }
 
