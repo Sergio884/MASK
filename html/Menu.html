@@ -63,11 +63,12 @@
 
     <script type="text/javascript" src="../JS/Menu.js">
     </script>
+     <link rel="stylesheet" href="../estilos/navBar.css">
   </head>
   <body onload="inicio()">
 
-<header class="navbar navbar-dark sticky-top azulOscuro flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" onclick="buscar()">Trobify</a>
+<header class="navbar navbar-dark sticky-top   flex-md-nowrap navegacion-principal nav-bg  ">
+  <!-- <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" onclick="buscar()">Trobify</a>
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
         <a class="nav-link" onclick="buscar()">Buscar</a>
@@ -80,7 +81,15 @@
     </ul>
     <button class="navbar-toggler  d-md-none " type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
+    
+      <!-- <nav class="navegacion-principal contenedor"> -->
+        <div class="robify" onclick="buscar()"><img src="../imagenes/TrobifyLogoWhite.png" href="#" onclick="buscar()"/>robify</div>
+          <a href="#" onclick="buscar()">Buscar</a>
+          <!-- <a href="#" onclick="problema()">Contacto</a> -->
+          <a href="../php/CerrarSesion.php">Cerrar Sesión</a>
+      <!-- </nav> -->
+   
 </header>
 
 <div class="container-fluid">

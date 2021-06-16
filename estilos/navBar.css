@@ -1,0 +1,99 @@
+:root{
+    --base:rgba(0, 97, 189, 0.856);
+    --secundario: rgba(71, 157, 255, 0.938);
+    --colorAuxiliar: rgba(117, 131, 255, 0.8);
+    --fuente: 'Poppins', sans-serif;
+    --fuenteSecundaria: 'Roboto', sans-serif;
+}
+
+
+.navegacion-principal{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+@media (min-width:768px){
+    .navegacion-principal{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        height: 3rem
+    }
+   
+}
+
+.navegacion-principal a{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-family: var(--fuente);
+    color: rgb(228, 228, 228);
+    text-decoration:none;
+    transition: background-color 0.5s ease-out;
+    border-radius: 1rem;
+}
+
+.navegacion-principal a:hover{
+    
+    background-color: rgba(212, 212, 212, 0.2);
+    color: rgba(255, 255, 255) ;
+    border-radius: 1rem;
+    -webkit-box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.2);
+    box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.2);
+    /* font-size: 1.5rem; */
+    transition: background-color 0.5s ease-out;
+    
+}
+
+.navegacion-principal img{
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity:70%;
+}
+
+.navegacion-principal img:hover{
+    transition: background-color 0.5s ease-out;
+    cursor:pointer;
+    
+}
+
+.robify{
+    padding: 0.25rem;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    transition: background-color 0.5s ease-out;
+    cursor:pointer;
+    font-size: 1.2rem;
+    font-family: var(--fuente);
+    color: rgb(228, 228, 228);
+    text-decoration:none;
+    transition: background-color 0.5s ease-out;
+    
+}
+
+.robify:hover{
+    background-color: rgba(212, 212, 212, 0.2);
+    color: rgba(255, 255, 255) ;
+    border-radius: 1rem;
+    -webkit-box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.2);
+    box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.2);
+    /* font-size: 1.5rem; */
+    transition: background-color 0.5s ease-out;
+}
+
+.nav-bg{
+    background: rgb(1,122,128);
+    background: linear-gradient(90deg, #017A80 30%, #00c0c7 47%, #017A80 80%);
+    -webkit-box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.55);
+    -moz-box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.55);
+    box-shadow: 2px 5px 19px -3px rgba(0,0,0,0.55);
+    /*background-color: var(--base);*/
+    
+}

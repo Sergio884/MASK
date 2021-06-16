@@ -33,7 +33,7 @@
         echo "<td>".$Titulo."</td>";
         echo "<td>".$Visitas."</td>";
         echo "<td><a href=\"../php/Publicacion.php?IdInmueble=".$IdInmueble."\"><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\"><span class=\"material-icons-outlined\">visibility</span></button></a></td>";
-        echo "<td><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\"><span class=\"material-icons-outlined\">edit</span></button></td>";
+        echo "<td><a href=\"../php/formActualizarInmueble.php?IdInmueble=".$IdInmueble."\"><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\"><span class=\"material-icons-outlined\">edit</span></button></a></td>";
         echo "<td><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" onclick=\"EliminarInmueble('".$IdInmueble."')\"><span class=\"material-icons-outlined\">delete</span></button></td>";
         echo "</tr>";
       }
