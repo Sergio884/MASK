@@ -48,6 +48,16 @@ function buscarInsulto($palabra){
     switch ($palabraSola) {
         case "puto";
         case "nigga";
+        case "chingo";
+        case "ching0n";
+        case "chingas";
+        case "ching4s";
+        case "mamamela";
+        case "mames";
+        case "cr7";
+        case "coca-cola";
+        case "coca";
+        case "coca cola";
         case "verga";
         case "puta";
         case "pendejo";

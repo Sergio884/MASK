@@ -68,7 +68,17 @@ body{
   text-align: right;
 }
 
+.miHora{
+  font-size: 16px !important;
+  font-size: bold !important;
+  text-align: right !important;
+}
 
+.suHora{
+  font-size: 16px !important;
+  font-size: bold !important;
+  text-align: left !important;
+}
 
 .suMensaje{
   background-color: #8eeae2;  
