@@ -1,7 +1,7 @@
 <?php
   $IdUsuario = $_GET['IdUsuario'];
   $IdInmueble = $_GET['IdInmueble'];
-  include('dbconnection.php');
+  include('../db/dbconnection.php');
   $sql = "DELETE FROM Historial WHERE IdUsuario = '".$IdUsuario."' AND IdInmueble = '".$IdInmueble."'";
   if(mysqli_query($conn, $sql)){
     echo "Información eliminada correctamente";

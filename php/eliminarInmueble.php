@@ -1,6 +1,6 @@
 <?php
   $IdInmueble = $_GET['IdInmueble'];
-  include('dbconnection.php');
+  include('../db/dbconnection.php');
   $sql = "DELETE FROM InmuebleFoto WHERE IdInmueble='".$IdInmueble."';";
   if(mysqli_query($conn, $sql)){
     $sql = "DELETE FROM Visitas WHERE Inmueble='".$IdInmueble."';";

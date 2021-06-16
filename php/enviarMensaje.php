@@ -144,6 +144,7 @@ function buscarInsulto($palabra){
         case "imvecil";
         case "huerfana";
         case "simp";
+        case "paul";
         case "incel";
         case "insel";
         case "fuckboy";
