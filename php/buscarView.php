@@ -67,17 +67,18 @@
                     <div class="col-md-3">
                         <select name="tipo" id="tipo" class="form-control">
                             <option value="%%">Tipo...</option>
-                            <option value="1">Casa</option>
+                            <option value="0">Casa</option>
                             <option value="2">Departamento</option>
                         </select>
                     </div>
                     <div class="col-md-2">
                         <select name="dormitorios" id="dormitorios" class="form-control">
                             <option value="%%">Dormitorios...</option>
+                            <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="2">3</option>
-                            <option value="2">4</option>
-                            <option value="2">5</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                             <option value="6">6</option>
                         </select>
                     </div>

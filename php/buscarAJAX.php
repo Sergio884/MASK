@@ -22,7 +22,7 @@
     $dorm = $_POST['dormitorios'];
     $precio = $_POST['precio'];
     //QUERY BUSQUEDA
-    $querysearch = "SELECT idInmueble, Titulo, Estado, Costo, TipoInmueble, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.idInmueble = inmueble.idInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND costo <= '$precio'";    
+    $querysearch = "SELECT IdInmueble, Titulo, Estado, Costo, TipoInmueble, (SELECT Foto FROM inmueblefoto WHERE inmueblefoto.IdInmueble = inmueble.IdInmueble LIMIT 1) AS fotos FROM inmueble WHERE Estado like '$estado' AND TipoInmueble like '$tipo' AND NumeroDormitorios like '$dorm' AND costo <= '$precio'";    
     //QUERY FAVORITOS
     $queryFav = "SELECT * FROM favoritos WHERE idUsuario = $idUsu";
     $resultFav = mysqli_query($conn, $queryFav); 
@@ -30,13 +30,13 @@
 
     $arrayFav = Array();
     while($rowFav = mysqli_fetch_array($resultFav)){
-        $arrayFav[] = $rowFav['idInmueble'];
+        $arrayFav[] = $rowFav['IdInmueble'];
     }
 
     if(isset($_POST['indice'])){
         $id = $_POST['indice'];
         if(in_array($id, $arrayFav)){
-            $queryInFav ="DELETE FROM favoritos WHERE idInmueble = $id AND idUsuario = $idUsu";
+            $queryInFav ="DELETE FROM favoritos WHERE IdInmueble = $id AND idUsuario = $idUsu";
             $resultInFav = mysqli_query($conn, $queryInFav);
         }else{
             $queryInFav = "INSERT INTO favoritos VALUES (null, $id, $idUsu)";
@@ -45,7 +45,7 @@
         $arrayFav = Array();
         $resultFav = mysqli_query($conn, $queryFav); 
         while($rowFav = mysqli_fetch_array($resultFav)){
-            $arrayFav[] = $rowFav['idInmueble'];
+            $arrayFav[] = $rowFav['IdInmueble'];
         }
     }
     if(!$result_search){
@@ -57,19 +57,19 @@
         while($row = mysqli_fetch_array($result_search)){
             //comprobar con un if si esta en la tabla de favoritos e imprimir un color o el otro del botón
             $colorBoton = 'light';
-            if(in_array($row['idInmueble'], $arrayFav)){
+            if(in_array($row['IdInmueble'], $arrayFav)){
                 $colorBoton = 'danger';
             }
 
             echo "<div class='col mb-3'>
             <div class='card'>
-            <button type='button' class='badge badge-pill badge-".$colorBoton." favorito' onclick='favoritos(".$row['idInmueble'].")'><i class='fas fa-heart'></i></button>
+            <button type='button' class='badge badge-pill badge-".$colorBoton." favorito' onclick='favoritos(".$row['IdInmueble'].")'><i class='fas fa-heart'></i></button>
              <img src='data:image/jpg;base64, ".base64_encode($row['fotos'])."' height='200' class='card-img-top'>
              <div class='card-body'>
-                    <h5 class='card-title'>". $arrayTipos[$row['TipoInmueble']] ."</h5>
+                    <h5 class='card-title'>". $row['Titulo'] ."</h5>
                     <h6>Estado: " .$row['Estado']. "</h6>
                     <p><span class='badge badge-pill badge-secondary'>$". number_format($row['Costo']) ." MXN</span></p>
-                    <a href='Publicacion.php?IdInmueble=".$row['idInmueble']."' class='btn btn-primary'>Ver inmueble</a>
+                    <a href='Publicacion.php?IdInmueble=".$row['IdInmueble']."' class='btn btn-primary'>Ver inmueble</a>
                 </div>
             </div>
         </div>";
