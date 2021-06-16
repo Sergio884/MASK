@@ -80,12 +80,13 @@
   </head>
   <body>
     <main>
-		<center><h1>Simula tu hipoteca<sup>*</sup></h1></center>
+	
 		<div class="container">
 			<div class="row mb-3 form-group">
 				<div class="col-md-2">
 				</div>
-				<div class="col-md-8 informacionPrincipal">
+				<div class="col-md-8 informacionPrincipal " style="border-radius:1rem; margin-top:1rem;">
+        <center><h1>Simula tu hipoteca<sup>*</sup></h1></center>
 					<div class="row mb-3 form-group">
 						<div class="col-sm-6">
 							<div class="row form-group">
@@ -95,7 +96,7 @@
 							</div>
 							<div class="row mb-3 form-group">
 								<div class="col-12">
-									<input type="text" readonly class="form-control" id="costo" value="<?php echo $Costo; ?>">
+									<input type="text" readonly class="form-control" id="costo" value="<?php echo($Costo); ?>">
 								</div>
 							</div>
 							<div class="row form-group">
@@ -131,7 +132,7 @@
 						<div class="col-sm-6">
 							<div class="row mb-3 form-group">
 								<div class="col-12">
-									<center><img width="250" height="150" <?php echo "src=\"data:image/jpg;base64, ".base64_encode($imagen)."\""; ?>></center>
+									<center><img width="250" height="150" <?php echo "src=\"data:image/jpg;base64, ".base64_encode($imagen)."\""; ?> style="border-radius:1rem;"></center>
 								</div>
 							</div>
 							<div class="row mb-3 form-group">
