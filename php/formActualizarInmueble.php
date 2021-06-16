@@ -49,14 +49,14 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
 <body onload="return ocultar();"> <!-- action="saveFormInmueble.php" method="POST"-->
     <form onsubmit="return validar();" action="saveActualizarInmueble.php?IdInmueble=<?php echo($idInmueble) ?>"  method="POST" class="formulario" enctype="multipart/form-data" >
         <fieldset>
-        <legend>¿Que tipo de alojamiento tienes?</legend>
+        <legend>¿Qué tipo de alojamiento tienes?</legend>
            <div class="contenedor-campos" id="contenedor1">
                 <div class="entradas titulo">
                     <label>Titulo</label>
                     <input name="titulo" value="<?php echo($Titulo);?>"placeholder="eje:Casa de dos pisos">
                 </div>
                 <div class="entradas alojamiento">
-                    <label>¿Que tipo de propiedad tienes?</label>
+                <label>¿Qué tipo de propiedad tienes?</label>
                     <select name="tipoPropiedad" class="Lista">
                         <option value="1" <?php if($TipoInmueble=='1'){echo("selected");}?> >Propiedad entera</option>
                         <option value="2" <?php if($TipoInmueble=='2'){echo("selected");}?> >Propiedad compartida</option>
@@ -65,24 +65,24 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
                     </select>
                 </div>
                 <div class="entradas tipoVenta">
-                    <label>¿Cual es el tipo de venta?</label>
+                    <label>¿Cuál es el tipo de venta?</label>
                     <select name="tipoVenta" class="Lista">
                         <option value="1" <?php if($VentaRenta=='1'){echo("selected");}?>>Renta</option>
                         <option value="0"  <?php if($VentaRenta=='2'){echo("selected");}?>>Venta</option>       
                     </select>
                 </div>
                 <div class="entradas ">
-                    <label>¿Cuantos Metros Cuadrados Tiene?</label>
-                    <input name="metrosCuadrados"id="metrosCuadrados" placeholder="eje: 50 " value="<?PHP echo($MetrosCuadrados)   ?>">
+                    <label>¿Cuçantos Metros Cuadrados Tiene?</label>
+                    <input type="Number" name="metrosCuadrados"id="metrosCuadrados" placeholder="eje: 50 " value="<?PHP echo($MetrosCuadrados)   ?>">
                 </div> 
                 <div class="entradas ">
-                    <label>¿Que Costo Tendra el Inmueble en Trobify?</label>
-                    <input name="costo"id="costo" placeholder="eje: 1000000 " value="<?PHP echo($Costo)?>">
+                    <label>¿Qué Costo Tendrá el Inmueble en Trobify?</label>
+                    <input type="Number" name="costo"id="costo" placeholder="eje: 1000000 " value="<?PHP echo($Costo)?>">
                 </div> 
                 <div class="entradas dormitorios">
-                    <label>¿Cuantos dormitorios tiene la propiedad?</label>
+                    <label>¿Cuántos dormitorios tiene la propiedad?</label>
                     <select name="numDormitorios"onchange="return validarMas();"  id="Dormitorio"class="Lista">
-                        <option disabled>0 Dormitorios</option>
+                        <option value="0" <?php if($NumeroDormitorio=='0'){echo("selected");}?> >0 Dormitorios</option>
                         <option value="1" <?php if($NumeroDormitorio=='1'){echo("selected");}?> >1 Dormitorio</option>
                         <option value="2" <?php if($NumeroDormitorio=='2'){echo("selected");}?> >2 Dormitorios</option>
                         <option value="3" <?php if($NumeroDormitorio=='3'){echo("selected");}?> >3 Dormitorios</option>
@@ -95,9 +95,9 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
                     <input class="inputSelect" name="masDormitorio"id="masDormitorio"placeholder="Ejemplo: 10" >    
                 </div>
                 <div class="entradas banios">
-                    <label>¿Cuantos baños tiene la propiedad?</label>
+                    <label>¿Cuántos baños tiene la propiedad?</label>
                     <select name="numBanios" onchange="return validarMas();" id="Banios"class="Lista">
-                        <option disabled selected="selected">0 Baños</option>
+                        <option value="0" <?php if($NumeroBanios=='0'){echo("selected");}?> >0 Baños</option>
                         <option value="1" <?php if($NumeroBanios=='1'){echo("selected");}?> >1 Baño</option>
                         <option value="2" <?php if($NumeroBanios=='2'){echo("selected");}?> >2 Baños</option>
                         <option value="3" <?php if($NumeroBanios=='3'){echo("selected");}?> >3 Baños</option>
@@ -113,10 +113,10 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
             </div>
         </fieldset>
         <fieldset>
-            <legend>Ubicacion del Inmueble</legend>
+            <legend>Ubicación del Inmueble</legend>
             <div class="contenedor-campos2">
                 <div class="entradas estado">
-                    <label>¿Estado de la República donde Encuentra?</label>
+                    <label>¿Estado de la República donde se Encuentra?</label>
                     <select name="estado"class="Lista" id="Estado"name="estado">
                         <option disabled selected="selected">Seleccione uno...</option>
                         <option value="Aguascalientes" <?php if($Estado=='Aguascalientes'){echo("selected");}?> >Aguascalientes</option>
@@ -154,16 +154,16 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
                     </select>
                 </div>
                 <div class="entradas ubicacion">
-                    <label>¿Cual es la Ciudad de tu Inmueble?</label>
+                    <label>¿Cuál es el Municipio o Delegación de tu Inmueble?</label>
                     <input name="ciudad" id="Ubicacion"placeholder="Ecatepec De Morelos" value="<?PHP echo($Ciudad)?>">
                 </div>
                 <div class="entradas direccion">
-                    <label>¿Cual es la Dirección de tu Inmueble?</label>
+                    <label>¿Cuál es la Dirección de tu Inmueble?</label>
                     <input name="direccion"id="Direccion"placeholder="eje: Av Bosques,52 " value="<?PHP echo($Direccion)?>">
                 </div>
                 <div class="entradas cp">
-                    <label>¿Cual es la CP de tu Inmueble? </label>
-                    <input name="cp" id="CodigoPostal" placeholder="eje: 55243 " value="<?PHP echo($CP)?>">
+                <label>¿Cuál es el Codigo Postal de tu Inmueble? </label>
+                    <input type="Number" name="cp" id="CodigoPostal" placeholder="eje: 55243 " value="<?PHP echo($CP)?>">
                 </div> 
                 
         </fieldset>
@@ -175,9 +175,9 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
                     <textarea name="descripcion" rows="5"id="descripcion" placeholder="eje: Es un Inmueble de fachada azul... " > <?PHP echo($Descripcion)?> </textarea>
                 </div>
                 <div class="entradas SubirFotos">
-                    <label>Sube imagenes para tu inmueble</label>
+                    <label>Sube imágenes para tu inmueble</label>
                         <div class="div_file"id="div_file">
-                            <p class="txtBtn"id="texto">Subir imagenes</p>
+                            <p class="txtBtn"id="texto">Subir imágenes</p>
                             <input class="btn_enviar"id="btn_enviar" name="file[]"  type="file" multiple/>
                         </div>
                 </div>

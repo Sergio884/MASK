@@ -68,7 +68,7 @@
         </div>
         <div class="entradas">
             <label name="telefonoL">Telefono</label>
-            <input id="apellidoM" type="text" name="telefono" placeholder="Ej. 5578946245" value="<?php echo($telefono)?>">
+            <input type="number" id="apellidoM" type="text" name="telefono" placeholder="Ej. 5578946245" value="<?php echo($telefono)?>">
         </div>
         <div class="entradas">
               <label>Fecha de nacimiento</label>
