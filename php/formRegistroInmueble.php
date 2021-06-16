@@ -16,19 +16,19 @@
     <link rel="stylesheet" href="../estilos/forms.css">
     <link rel="stylesheet" href="../estilos/gridInmueble.css">
     <script src="../JS/ValidacionFormInmueble.js"></script>
-    <title>Document</title>
+    <title>Actualizar Inmueble</title>
 </head>
 <body onload="return ocultar();"> <!-- action="saveFormInmueble.php" method="POST"-->
     <form onsubmit="return validar();" action="saveFormInmueble.php" method="POST" class="formulario" enctype="multipart/form-data" >
         <fieldset>
-        <legend>¿Que tipo de alojamiento tienes?</legend>
+        <legend>¿Qué tipo de alojamiento tienes?</legend>
            <div class="contenedor-campos" id="contenedor1">
                 <div class="entradas titulo">
                     <label>Titulo</label>
                     <input name="titulo" placeholder="eje:Casa de dos pisos">
                 </div>
                 <div class="entradas alojamiento">
-                    <label>¿Que tipo de propiedad tienes?</label>
+                    <label>¿Qué tipo de propiedad tienes?</label>
                     <select name="tipoPropiedad" class="Lista">
                         <option value="1">Propiedad entera</option>
                         <option value="2">Propiedad compartida</option>
@@ -37,24 +37,24 @@
                     </select>
                 </div>
                 <div class="entradas tipoVenta">
-                    <label>¿Cual es el tipo de venta?</label>
+                    <label>¿Cuál es el tipo de venta?</label>
                     <select name="tipoVenta" class="Lista">
                         <option value="1">Renta</option>
                         <option value="0">Venta</option>       
                     </select>
                 </div>
                 <div class="entradas ">
-                    <label>¿Cuantos Metros Cuadrados Tiene?</label>
-                    <input name="metrosCuadrados"id="metrosCuadrados" placeholder="eje: 50 ">
+                    <label>¿Cuántos Metros Cuadrados Tiene?</label>
+                    <input type="number" name="metrosCuadrados"id="metrosCuadrados" placeholder="eje: 50 ">
                 </div> 
                 <div class="entradas ">
-                    <label>¿Que Costo Tendra el Inmueble en Trobify?</label>
-                    <input name="costo"id="costo" placeholder="eje: 1000000 ">
+                    <label>¿Qué Costo Tendrá el Inmueble en Trobify?</label>
+                    <input type="number"name="costo"id="costo" placeholder="eje: 1000000 ">
                 </div> 
                 <div class="entradas dormitorios">
-                    <label>¿Cuantos dormitorios tiene la propiedad?</label>
+                    <label>¿Cuántos dormitorios tiene la propiedad?</label>
                     <select name="numDormitorios"onchange="return validarMas();"  id="Dormitorio"class="Lista">
-                        <option disabled selected="selected">0 Dormitorios</option>
+                        <option value="0" selected="selected">0 Dormitorios</option>
                         <option value="1">1 Dormitorio</option>
                         <option value="2">2 Dormitorios</option>
                         <option value="3">3 Dormitorios</option>
@@ -65,9 +65,9 @@
                     <input class="inputSelect" name="masDormitorio"id="masDormitorio"placeholder="Ejemplo: 10">    
                 </div>
                 <div class="entradas banios">
-                    <label>¿Cuantos baños tiene la propiedad?</label>
+                    <label>¿Cuántos baños tiene la propiedad?</label>
                     <select name="numBanios" onchange="return validarMas();" id="Banios"class="Lista">
-                        <option disabled selected="selected">0 Baños</option>
+                        <option value="0" selected="selected">0 Baños</option>
                         <option value="1">1 Baño</option>
                         <option value="2">2 Baños</option>
                         <option value="3">3 Baños</option>
@@ -81,10 +81,10 @@
             </div>
         </fieldset>
         <fieldset>
-            <legend>Ubicacion del Inmueble</legend>
+            <legend>Ubicación del Inmueble</legend>
             <div class="contenedor-campos2">
                 <div class="entradas estado">
-                    <label>¿Estado de la República donde Encuentra?</label>
+                    <label>¿Estado de la República donde se Encuentra?</label>
                     <select name="estado"class="Lista" id="Estado"name="estado">
                         <option disabled selected="selected">Seleccione uno...</option>
                         <option value="Aguascalientes">Aguascalientes</option>
@@ -122,16 +122,16 @@
                     </select>
                 </div>
                 <div class="entradas ubicacion">
-                    <label>¿Cual es la Ciudad de tu Inmueble?</label>
+                <label>¿Cuál es el Municipio o Delegación de tu Inmueble?</label>
                     <input name="ciudad" id="Ubicacion"placeholder="Ecatepec De Morelos">
                 </div>
                 <div class="entradas direccion">
-                    <label>¿Cual es la Dirección de tu Inmueble?</label>
+                    <label>¿Cuál es la Dirección de tu Inmueble?</label>
                     <input name="direccion"id="Direccion"placeholder="eje: Av Bosques,52 ">
                 </div>
                 <div class="entradas cp">
-                    <label>¿Cual es la CP de tu Inmueble? </label>
-                    <input name="cp" id="CodigoPostal" placeholder="eje: 55243 ">
+                    <label>¿Cuál es el Codigo Postal de tu Inmueble? </label>
+                    <input type="number"name="cp" id="CodigoPostal" placeholder="eje: 55243 ">
                 </div> 
                 
         </fieldset>
@@ -143,9 +143,9 @@
                     <textarea name="descripcion" rows="5"id="descripcion" placeholder="eje: Es un Inmueble de fachada azul... "></textarea>
                 </div>
                 <div class="entradas SubirFotos">
-                    <label>Sube imagenes para tu inmueble</label>
+                    <label>Sube imágenes para tu inmueble</label>
                         <div class="div_file"id="div_file">
-                            <p class="txtBtn"id="texto">Subir imagenes</p>
+                            <p class="txtBtn"id="texto">Subir imágenes</p>
                             <input class="btn_enviar"id="btn_enviar" name="file[]"  type="file" multiple/>
                         </div>
                 </div>
