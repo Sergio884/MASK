@@ -138,6 +138,18 @@
     <link href="../estilos/carousel.css" rel="stylesheet">
 
     <title>Trobify</title>
+    <script type="text/javascript">
+      function favorito(){
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200){
+              alert(this.responseText);
+            }
+          };
+          xmlhttp.open("GET","agregarFavorito.php?idInmueble=<?php echo $idInmueble; ?>",true);
+          xmlhttp.send();
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -244,7 +256,7 @@
             <p><h4><?php echo $Telefono; ?></h4></p>
             <?php echo "<a href=\"./enviarMensaje.php?receptor=".$Usuario."&idInmueble=".$idInmueble."\">"; ?><button type="button" class="w-100 btn btn-lg btn-light">Mandar mensaje al vendedor</button></a>
             <p></p>
-            <button type="button" class="w-100 btn btn-lg btn-light">Guardar a favoritos</button>
+            <button type="button" class="w-100 btn btn-lg btn-light" onclick="favorito()">Guardar a favoritos</button>
             <p></p>
             <p></p>
             <?php echo "<a href=\"./SimuladorHipotecas.php?IdInmueble=".$idInmueble."\""; ?><button type="button" class="w-100 btn btn-lg btn-light">Simular hipoteca</button></a>
@@ -276,7 +288,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMYIaquzXvBkCejCll1ZxSgCmWbjiRO5g&callback=iniciarMap"></script>
     <!--MAPA-->
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
