@@ -47,7 +47,7 @@
         
         <div class="entradas">
             <label name="usuarioL">Usuario</label>
-            <input id="nombre" type="text" name="usuario" placeholder="Ej. Jose0308" value="<?php echo($NomUsuario)?>">
+            <input id="nombre" disabled type="text" name="usuario" placeholder="Ej. Jose0308" value="<?php echo($NomUsuario)?>">
         </div>
         <div class="entradas">
             <label name="pass">Contraseña</label>
