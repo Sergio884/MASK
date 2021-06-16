@@ -46,7 +46,7 @@ include('../db/dbconnection.php');
             <input id="correo" type="text" name="correo" placeholder="Ej. ejemplo@mail.com">
         </div>
         <div class="entradas">
-            <label name="telefonoL">Telefono</label>
+            <label type="number" name="telefonoL">Telefono</label>
             <input id="apellidoM" type="text" name="telefono" placeholder="Ej. 5578946245">
         </div>
         <div class="entradas">
