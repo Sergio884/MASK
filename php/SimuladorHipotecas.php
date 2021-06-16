@@ -27,7 +27,10 @@
 
 	<style>
 		.informacionPrincipal{
-			background-color: #2CCABD;
+			-webkit-box-shadow: 2px 5px 19px -6px rgba(0,0,0,0.55);
+    -moz-box-shadow: 2px 5px 19px -6px rgba(0,0,0,0.55);
+    box-shadow: 2px 5px 19px -6px rgba(0,0,0,0.55);
+    background-image: linear-gradient(to top,#00a3a8 0%, #017A80 90%);
 			color: #F7FFFFFF;
 		}
 	</style>

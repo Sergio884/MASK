@@ -125,7 +125,13 @@
       }
 
       .informacionExtra{
-        background-color: #2CCABD;
+        -webkit-box-shadow: 2px 5px 19px -6px rgba(0,0,0,0.55);
+       -moz-box-shadow: 2px 5px 19px -6px rgba(0,0,0,0.55);
+        box-shadow: 2px 5px 19px -6px rgba(0,0,0,0.55);
+        background-image: linear-gradient(to top,#017A80 0%, #00a3a8 90%);
+        border-radius: 0.5rem;
+        /* padding-right: 1rem; */
+        width: 26rem;
         color: #FFFFFF;
       }
 
