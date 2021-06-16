@@ -47,7 +47,7 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
     <title>Document</title>
 </head>
 <body onload="return ocultar();"> <!-- action="saveFormInmueble.php" method="POST"-->
-    <form onsubmit="return validar();" action="saveFormInmueble.php" method="POST" class="formulario" enctype="multipart/form-data" >
+    <form onsubmit="return validar();" action="saveActualizarInmueble.php?IdInmueble=<?php echo($idInmueble) ?>"  method="POST" class="formulario" enctype="multipart/form-data" >
         <fieldset>
         <legend>¿Que tipo de alojamiento tienes?</legend>
            <div class="contenedor-campos" id="contenedor1">
@@ -76,32 +76,36 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
                     <input name="metrosCuadrados"id="metrosCuadrados" placeholder="eje: 50 " value="<?PHP echo($MetrosCuadrados)   ?>">
                 </div> 
                 <div class="entradas ">
-                    <label>¿Que Costo Tendra el Inmueble?</label>
+                    <label>¿Que Costo Tendra el Inmueble en Trobify?</label>
                     <input name="costo"id="costo" placeholder="eje: 1000000 " value="<?PHP echo($Costo)?>">
                 </div> 
                 <div class="entradas dormitorios">
                     <label>¿Cuantos dormitorios tiene la propiedad?</label>
                     <select name="numDormitorios"onchange="return validarMas();"  id="Dormitorio"class="Lista">
-                        <option >0 Dormitorios</option>
+                        <option disabled>0 Dormitorios</option>
                         <option value="1" <?php if($NumeroDormitorio=='1'){echo("selected");}?> >1 Dormitorio</option>
                         <option value="2" <?php if($NumeroDormitorio=='2'){echo("selected");}?> >2 Dormitorios</option>
                         <option value="3" <?php if($NumeroDormitorio=='3'){echo("selected");}?> >3 Dormitorios</option>
                         <option value="4" <?php if($NumeroDormitorio=='4'){echo("selected");}?> >4 Dormitorios</option>
                         <option value="5" <?php if($NumeroDormitorio=='5'){echo("selected");}?> >5 Dormitorios</option>
-                        <option value="-1" <?php if(intval($NumeroDormitorio)>5){echo("selected");}?> >Mas Dormitorios</option>     
+                        <?php if(intval($NumeroDormitorio)>5){?>
+                            <option value="<?PHP echo($NumeroDormitorio)?>" selected ><?PHP echo($NumeroDormitorio)?> Dormitorios</option><?PHP } ?> 
+                        <option value="-1" >Mas Dormitorios</option>     
                     </select>
-                    <input class="inputSelect" name="masDormitorio"id="masDormitorio"placeholder="Ejemplo: 10" value="<?php if(intval($NumeroDormitorio)>5){echo($NumeroDormitorio);}?>" <?php if(intval($NumeroDormitorio)>5){echo('style="display:block"');}?> >    
+                    <input class="inputSelect" name="masDormitorio"id="masDormitorio"placeholder="Ejemplo: 10" >    
                 </div>
                 <div class="entradas banios">
                     <label>¿Cuantos baños tiene la propiedad?</label>
                     <select name="numBanios" onchange="return validarMas();" id="Banios"class="Lista">
                         <option disabled selected="selected">0 Baños</option>
-                        <option value="1">1 Baño</option>
-                        <option value="2">2 Baños</option>
-                        <option value="3">3 Baños</option>
-                        <option value="4">4 Baños</option>
-                        <option value="5">5 Baños</option>
-                        <option value="-1">Mas Baños</option>     
+                        <option value="1" <?php if($NumeroBanios=='1'){echo("selected");}?> >1 Baño</option>
+                        <option value="2" <?php if($NumeroBanios=='2'){echo("selected");}?> >2 Baños</option>
+                        <option value="3" <?php if($NumeroBanios=='3'){echo("selected");}?> >3 Baños</option>
+                        <option value="4" <?php if($NumeroBanios=='4'){echo("selected");}?> >4 Baños</option>
+                        <option value="5" <?php if($NumeroBanios=='5'){echo("selected");}?> >5 Baños</option>
+                        <?php if(intval($NumeroBanios)>5){?>
+                            <option value="<?PHP echo($NumeroBanios)?>" selected ><?PHP echo($NumeroBanios)?> Baños</option><?PHP } ?> 
+                        <option value="-1" >Mas Baños</option>     
                     </select>
                     <input class="inputSelect" name="masBanios"id="masBanios"type="number" placeholder="eje: 10">    
                 </div>
@@ -115,38 +119,38 @@ $sql = "SELECT * FROM Inmueble WHERE IdInmueble=".$idInmueble."";
                     <label>¿Estado de la República donde Encuentra?</label>
                     <select name="estado"class="Lista" id="Estado"name="estado">
                         <option disabled selected="selected">Seleccione uno...</option>
-                        <option value="Aguascalientes">Aguascalientes</option>
-                        <option value="Baja California">Baja California</option>
-                        <option value="Baja California Sur">Baja California Sur</option>
-                        <option value="Campeche">Campeche</option>
-                        <option value="Chiapas">Chiapas</option>
-                        <option value="Chihuahua">Chihuahua</option>
-                        <option value="CDMX">Ciudad de México</option>
-                        <option value="Coahuila">Coahuila</option>
-                        <option value="Colima">Colima</option>
-                        <option value="Durango">Durango</option>
-                        <option value="Estado de México">Estado de México</option>
-                        <option value="Guanajuato">Guanajuato</option>
-                        <option value="Guerrero">Guerrero</option>
-                        <option value="Hidalgo">Hidalgo</option>
-                        <option value="Jalisco">Jalisco</option>
-                        <option value="Michoacán">Michoacán</option>
-                        <option value="Morelos">Morelos</option>
-                        <option value="Nayarit">Nayarit</option>
-                        <option value="Nuevo León">Nuevo León</option>
-                        <option value="Oaxaca">Oaxaca</option>
-                        <option value="Puebla">Puebla</option>
-                        <option value="Querétaro">Querétaro</option>
-                        <option value="Quintana Roo">Quintana Roo</option>
-                        <option value="San Luis Potosí">San Luis Potosí</option>
-                        <option value="Sinaloa">Sinaloa</option>
-                        <option value="Sonora">Sonora</option>
-                        <option value="Tabasco">Tabasco</option>
-                        <option value="Tamaulipas">Tamaulipas</option>
-                        <option value="Tlaxcala">Tlaxcala</option>
-                        <option value="Veracruz">Veracruz</option>
-                        <option value="Yucatán">Yucatán</option>
-                        <option value="Zacatecas">Zacatecas</option>
+                        <option value="Aguascalientes" <?php if($Estado=='Aguascalientes'){echo("selected");}?> >Aguascalientes</option>
+                        <option value="Baja California" <?php if($Estado=='Baja California'){echo("selected");}?> >Baja California</option>
+                        <option value="Baja California Sur" <?php if($Estado=='Baja California Sur'){echo("selected");}?> >Baja California Sur</option>
+                        <option value="Campeche" <?php if($Estado=='Campeche'){echo("selected");}?> >Campeche</option>
+                        <option value="Chiapas" <?php if($Estado=='Chiapas'){echo("selected");}?> >Chiapas</option>
+                        <option value="Chihuahua" <?php if($Estado=='Chihuahua'){echo("selected");}?> >Chihuahua</option>
+                        <option value="CDMX" <?php if($Estado=='CDMX'){echo("selected");}?> >Ciudad de México</option>
+                        <option value="Coahuila" <?php if($Estado=='Coahuila'){echo("selected");}?> >Coahuila</option>
+                        <option value="Colima" <?php if($Estado=='Colima'){echo("selected");}?> >Colima</option>
+                        <option value="Durango" <?php if($Estado=='Durango'){echo("selected");}?> >Durango</option>
+                        <option value="Estado de México" <?php if($Estado=='Estado de México'){echo("selected");}?> >Estado de México</option>
+                        <option value="Guanajuato" <?php if($Estado=='Guanajuato'){echo("selected");}?> >Guanajuato</option>
+                        <option value="Guerrero" <?php if($Estado=='Guerrero'){echo("selected");}?> >Guerrero</option>
+                        <option value="Hidalgo" <?php if($Estado=='Hidalgo'){echo("selected");}?> >Hidalgo</option>
+                        <option value="Jalisco" <?php if($Estado=='Jalisco'){echo("selected");}?> >Jalisco</option>
+                        <option value="Michoacán" <?php if($Estado=='Michoacán'){echo("selected");}?> >Michoacán</option>
+                        <option value="Morelos" <?php if($Estado=='Morelos'){echo("selected");}?> >Morelos</option>
+                        <option value="Nayarit" <?php if($Estado=='Nayarit'){echo("selected");}?> >Nayarit</option>
+                        <option value="Nuevo León" <?php if($Estado=='Nuevo León'){echo("selected");}?> >Nuevo León</option>
+                        <option value="Oaxaca" <?php if($Estado=='Oaxaca'){echo("selected");}?> >Oaxaca</option>
+                        <option value="Puebla" <?php if($Estado=='Puebla'){echo("selected");}?> >Puebla</option>
+                        <option value="Querétaro" <?php if($Estado=='Querétaro'){echo("selected");}?> >Querétaro</option>
+                        <option value="Quintana Roo" <?php if($Estado=='Quintana Roo'){echo("selected");}?> >Quintana Roo</option>
+                        <option value="San Luis Potosí" <?php if($Estado=='San Luis Potosí'){echo("selected");}?> >San Luis Potosí</option>
+                        <option value="Sinaloa" <?php if($Estado=='Sinaloa'){echo("selected");}?> >Sinaloa</option>
+                        <option value="Sonora" <?php if($Estado=='Sonora'){echo("selected");}?> >Sonora</option>
+                        <option value="Tabasco" <?php if($Estado=='Tabasco'){echo("selected");}?> >Tabasco</option>
+                        <option value="Tamaulipas" <?php if($Estado=='Tamaulipas'){echo("selected");}?> >Tamaulipas</option>
+                        <option value="Tlaxcala" <?php if($Estado=='Tlaxcala'){echo("selected");}?> >Tlaxcala</option>
+                        <option value="Veracruz" <?php if($Estado=='Veracruz'){echo("selected");}?> >Veracruz</option>
+                        <option value="Yucatán" <?php if($Estado=='Yucatán'){echo("selected");}?> >Yucatán</option>
+                        <option value="Zacatecas" <?php if($Estado=='Zacatecas'){echo("selected");}?> >Zacatecas</option>
                     </select>
                 </div>
                 <div class="entradas ubicacion">

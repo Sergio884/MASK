@@ -1,6 +1,27 @@
-<?php 
+<?php include('../db/dbconnection.php'); 
+    session_start();
+  if(!isset($_SESSION['usuario'])){
+    header("location: ../html/login.html");
+  }
+  $NomUsuario = $_SESSION['usuario'];
 
-include('../db/dbconnection.php');
+
+
+     $query = "SELECT * FROM usuario WHERE Usuario='$NomUsuario'";
+     $run = mysqli_query($conn,$query);
+
+     if(mysqli_num_rows($run) > 0){
+        $row = mysqli_fetch_assoc($run);
+        $password=$row['Password'];
+        $nombre=$row['Nombres'];
+        $apellidos=$row['Apellidos'];
+        $correo=$row['Correo'];
+        $telefono=$row['Telefono'];
+        $nacimiento=$row['Edad'];
+
+     }
+
+
 ?>
 
 
@@ -20,38 +41,38 @@ include('../db/dbconnection.php');
     <title>Document</title>
 </head>
 <body onload="return ocultar();">
-    <form class="formulario" onsubmit="return validar(); " action="saveFormUsuarioRegistro.php" method="POST" enctype="multipart/form-data" >
-        <fieldset ><legend>Registrate</legend>
+    <form class="formulario" onsubmit="return validar(); " action="saveActualizarFormUsuario.php" method="POST" enctype="multipart/form-data" >
+        <fieldset ><legend>Actualiza tus Datos</legend>
     <div class="contenedor-campos">
         
         <div class="entradas">
             <label name="usuarioL">Usuario</label>
-            <input id="nombre" type="text" name="usuario" placeholder="Ej. Jose0308">
+            <input id="nombre" type="text" name="usuario" placeholder="Ej. Jose0308" value="<?php echo($NomUsuario)?>">
         </div>
         <div class="entradas">
             <label name="pass">Contraseña</label>
-            <input id="nombre" type="password" name="password" placeholder="Ej. Ejemplo123">
+            <input id="nombre" type="password" name="password" placeholder="Ej. Ejemplo123" value="<?php echo($password)?>">
         </div>
         <div class="entradas">
             <label name="nombreL">Nombres</label>
-            <input id="nombre" type="text" name="nombre" placeholder="Ej. José">
+            <input id="nombre" type="text" name="nombre" placeholder="Ej. José" value="<?php echo($nombre)?>">
         </div>
        
         <div class="entradas">
             <label name="apellido">Apellidos</label>
-            <input id="apellido" type="text" name="apellidos" placeholder="Ej. Rodriguez">
+            <input id="apellido" type="text" name="apellidos" placeholder="Ej. Rodriguez" value="<?php echo($apellidos)?>">
         </div>
         <div class="entradas">
             <label name="correoL">Correo Electrónico</label>
-            <input id="correo" type="text" name="correo" placeholder="Ej. ejemplo@mail.com">
+            <input id="correo" type="text" name="correo" placeholder="Ej. ejemplo@mail.com" value="<?php echo($correo)?>">
         </div>
         <div class="entradas">
             <label name="telefonoL">Telefono</label>
-            <input id="apellidoM" type="text" name="telefono" placeholder="Ej. 5578946245">
+            <input id="apellidoM" type="text" name="telefono" placeholder="Ej. 5578946245" value="<?php echo($telefono)?>">
         </div>
         <div class="entradas">
               <label>Fecha de nacimiento</label>
-              <input id="nacimiento" type="date" max="2020-02-20" min="1910-02-20"  name="nacimiento">
+              <input id="nacimiento" type="date" max="2020-02-20" min="1910-02-20"  name="nacimiento" value="<?php echo(date($nacimiento))?>">
         </div> 
         <div class="entradas">
             <label>Sube una foto de Perfil</label>
@@ -67,4 +88,3 @@ include('../db/dbconnection.php');
         </div>
     </form>
 </body>
-</html>

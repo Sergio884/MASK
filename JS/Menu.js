@@ -135,7 +135,7 @@ function visitas(){
 }
 
 function usuario(){
-  document.getElementById("pantalla").innerHTML = "<iframe src=\"https://telegram.org/\"></iframe>";
+  document.getElementById("pantalla").innerHTML = "<iframe src=\"../php/actualizarFormUsuario.php?\"></iframe>";
   document.getElementById("favoritos").classList.remove('active');
   document.getElementById("mensajes").classList.remove('active');
   document.getElementById("notificaciones").classList.remove('active');

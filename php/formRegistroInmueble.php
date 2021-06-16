@@ -48,7 +48,7 @@
                     <input name="metrosCuadrados"id="metrosCuadrados" placeholder="eje: 50 ">
                 </div> 
                 <div class="entradas ">
-                    <label>¿Que Costo Tendra el Inmueble?</label>
+                    <label>¿Que Costo Tendra el Inmueble en Trobify?</label>
                     <input name="costo"id="costo" placeholder="eje: 1000000 ">
                 </div> 
                 <div class="entradas dormitorios">
