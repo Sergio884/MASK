@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../estilos/estiloLogin.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link rel="icon" href="../imagenes/logoT.ico">
   </head>   
   <body id="login">
       <section>
