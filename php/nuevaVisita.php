@@ -51,7 +51,7 @@
               </div>
               <div class="row mb-3 form-group">
                 <div class="col-12">
-                  <button class="w-100 btn btn-lg btn-primary" onclick="showHint(Fecha.value, Hora.value)">Crear</button>
+                  <button class="w-100 btn btn-lg" style="background-color: rgb(1,122,128); color: #ffffff" onclick="showHint(Fecha.value, Hora.value)">Crear</button>
                 </div>
               </div>
             </div>

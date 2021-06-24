@@ -4,7 +4,7 @@
     header("location: ../html/Login.html");
   }
   $usuario = $_SESSION['usuario'];
-  include('dbconnection.php');
+  include('../db/dbconnection.php');
   $sql = "SELECT * FROM Usuario WHERE Usuario='".$usuario."' OR Correo='".$usuario."';";
   $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) > 0){

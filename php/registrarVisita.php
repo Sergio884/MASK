@@ -8,7 +8,7 @@
   $idInmueble = $_GET['idInmueble'];
   $Fecha = $_GET['fecha'];
   $Hora = $_GET['hora'];
-  include('dbconnection.php');
+  include('../db/dbconnection.php');
 
   $sql = "SELECT * FROM Usuario WHERE Usuario='".$usuario."' OR Correo='".$usuario."';";
   $result = mysqli_query($conn, $sql);

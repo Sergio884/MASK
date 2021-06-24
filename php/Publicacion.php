@@ -131,8 +131,11 @@
         background-image: linear-gradient(to top,#017A80 0%, #00a3a8 90%);
         border-radius: 0.5rem;
         /* padding-right: 1rem; */
-        width: 26rem;
+        width: 20rem;
         color: #FFFFFF;
+      }
+      .body{
+        width:90vh;
       }
 
     #map{
